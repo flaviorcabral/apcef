@@ -5,6 +5,7 @@
 
     $c = new Controller();
     $c->login();
+
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="pt-br" class="ie8"> <![endif]-->
@@ -14,7 +15,7 @@
 <!-- BEGIN HEAD -->
 <head>
      <meta charset="UTF-8" lang="pt-br" />
-    <title>BCORE Admin Dashboard Template | Login Page</title>
+    <title>Gerenciador | Login Page</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -41,7 +42,7 @@
    <!-- PAGE CONTENT --> 
     <div class="container">
     <div class="text-center">
-        <img src="assets/img/logo.png" id="logoimg" alt=" Logo" />
+        <img src="img/logo.png" id="logoimg" alt=" Logo" />
     </div>
     <div class="tab-content">
         <div id="login" class="tab-pane active">

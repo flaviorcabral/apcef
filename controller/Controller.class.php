@@ -56,7 +56,7 @@ class Controller {
         if (isset($_SESSION['login'])) {
             session_destroy();
             
-            header('Location: ../views/login.php');
+            header('Location: ../index.php');
             exit;
         
             }
