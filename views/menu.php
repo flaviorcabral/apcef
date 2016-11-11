@@ -42,7 +42,7 @@
 
 
 <!-- MENU SECTION -->
-<div id="left">
+<div id="left" style="position: fixed;">
     <ul id="menu" class="collapse">
         <li class="panel ">
             <a href="../views/contratos.php" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
@@ -75,6 +75,7 @@
                 &nbsp; <span class="label label-info">6</span>&nbsp;
             </a>
         </li>
+       </ul>
 </div>
 <!--END MENU SECTION -->
 

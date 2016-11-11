@@ -85,8 +85,8 @@
                                             <td class="center">Win 95+</td>
                                             <td class="center">083 98157-7582</td>
                                             <td style="text-align: center;">
-                                                <button class="btn"><i class="icon-eye-open"></i> View</button>
-                                                <button class="btn btn-primary"><i class="icon-pencil icon-white"></i> Edit</button>
+                                                <button class="btn" data-toggle="modal" data-target="#formModal"><i class="icon-eye-open"></i> Ver </button>
+                                                <button class="btn btn-primary" onClick="javascript:window.location.href='editarcontrato.php'"><i class="icon-pencil icon-white"></i> Edit</button>
                                                 <button class="btn btn-danger"><i class="icon-remove icon-white"></i> Delete</button>
                                             </td>
                                         </tr>
@@ -114,7 +114,78 @@
             </div>
         </div>
        <!--END PAGE CONTENT -->
+        <div class="row">
 
+            <div class="col-lg-12">
+                <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="H2">Informações do Plano</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label class="">Matricula</label>
+                                        <input class="form-control" value="teste" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Titular</label>
+                                        <input class="form-control" value="teste" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Data de Nascimento</label>
+                                        <input class="form-control" value="teste" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>CPF</label>
+                                        <input class="form-control" value="teste" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>RG</label>
+                                        <input class="form-control" value="teste" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Endereço</label>
+                                        <input class="form-control" value="teste" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Cidade</label>
+                                        <input class="form-control" value="teste" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Telefone</label>
+                                        <input class="form-control" value="teste" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>E-mail</label>
+                                        <input class="form-control" value="teste" />
+                                    </div>
+                                    <p><h4>Dependentes</h4></p>
+                                    <div class="form-group">
+                                        <input class="form-control" value="teste" />
+                                        <input class="form-control" value="teste" />
+                                        <input class="form-control" value="teste" />
+                                        <input class="form-control" value="teste" />
+                                        <input class="form-control" value="teste" />
+                                        <input class="form-control" value="teste" />
+                                        <input class="form-control" value="teste" />
+                                        <input class="form-control" value="teste" />
+                                        <input class="form-control" value="teste" />
+                                        <input class="form-control" value="teste" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 

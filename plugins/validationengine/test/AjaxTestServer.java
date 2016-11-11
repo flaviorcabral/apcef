@@ -145,7 +145,7 @@ public class AjaxTestServer extends NanoHTTPD {
 	 * Form validation error generation Generates a list of errors
 	 * 
 	 * @param errors
-	 * @return [["field1", "this field is required<br/>
+	 * @return [["field1", "???<br/>
 	 *         it doesn't match<br/>
 	 *         "],["field2","another error"]]
 	 */

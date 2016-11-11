@@ -505,7 +505,7 @@ test("elements() order", function() {
 
 test("defaultMessage(), empty title is ignored", function() {
 	var v = $("#userForm").validate();
-	equal( "This field is required.", v.defaultMessage($("#username")[0], "required") );
+	equal( "???", v.defaultMessage($("#username")[0], "required") );
 });
 
 test("formatAndAdd", function() {
