@@ -96,7 +96,6 @@
                                                 <input type="text" id="dtnasc" name="dtnasc" class="form-control" required/>
                                             </div>
                                         </div>
-                                        <div class="form-group">
                                             <div class="form-group">
                                                 <label class="control-label col-lg-4">Sexo</label>
                                                 <div class="col-lg-2">
@@ -107,7 +106,6 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
                                         <div class="form-group">
                                             <label class="control-label col-lg-4">CPF</label>
                                             <div class="col-lg-3">
@@ -186,6 +184,16 @@
                                                 <input type="email" id="email" name="email" class="form-control" />
                                             </div>
                                         </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-lg-4">Status</label>
+                                                <div class="col-lg-2">
+                                                    <select name="option" id="ption" class="validate[required] form-control" required>
+                                                        <option value="">Escolha uma opção ...</option>
+                                                        <option value="option1">Aberto</option>
+                                                        <option value="option2">Fechado</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
                                         <header class="dark">
                                     <div class="icons"><i class="icon-ok"></i></div>
@@ -286,9 +294,7 @@
                                         <div class="col-lg-2">
                                             <input type="text" id="dtnasc10" name="dtnasc10" class="form-control">
                                         </div>
-
-
-                                        <div class="form-actions no-margin-bottom" style="text-align:center;">
+                                        <div class="form-actions no-margin-bottom" style="">
                                             <input type="submit" value="Salvar Contrato" class="btn btn-primary btn-lg " />
                                         </div>
                                     </form>

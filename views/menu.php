@@ -9,7 +9,7 @@
                 <!-- LOGO SECTION -->
                 <header class="navbar-header">
 
-                    <a href="index.html" class="navbar-brand">
+                    <a href="../views/contratos.php" class="navbar-brand">
                     <img src="../img/logo.png" alt="" /></a>
                 </header>
                 <!-- END LOGO SECTION -->

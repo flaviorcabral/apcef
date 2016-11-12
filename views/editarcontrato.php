@@ -9,7 +9,7 @@
  <!-- BEGIN HEAD -->
 <head>
     <meta charset="UTF-8" lang="pt-br" />
-    <title>Gerenciador | Formulário de Cadastro</title>
+    <title>Gerenciador | Edição de Cadastro</title>
      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -96,7 +96,6 @@
                                                 <input type="text" id="dtnasc" name="dtnasc" class="form-control" />
                                             </div>
                                         </div>
-                                        <div class="form-group">
                                             <div class="form-group">
                                                 <label class="control-label col-lg-4">Sexo</label>
                                                 <div class="col-lg-2">
@@ -107,8 +106,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
+                                            <div class="form-group">
                                             <label class="control-label col-lg-4">CPF</label>
                                             <div class="col-lg-3">
                                                 <input type="text" id="cpf" name="cpf" class="form-control"  />
@@ -186,6 +184,16 @@
                                                 <input type="email" id="email" name="email" class="form-control" />
                                             </div>
                                         </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-lg-4">Status</label>
+                                                <div class="col-lg-2">
+                                                    <select name="option" id="ption" class="validate[required] form-control" required>
+                                                        <option value="">Escolha uma opção ...</option>
+                                                        <option value="option1">Aberto</option>
+                                                        <option value="option2">Fechado</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
                                         <header class="dark">
                                     <div class="icons"><i class="icon-ok"></i></div>
@@ -286,9 +294,7 @@
                                         <div class="col-lg-2">
                                             <input type="text" id="dtnasc10" name="dtnasc10" class="form-control">
                                         </div>
-
-
-                                        <div class="form-actions no-margin-bottom" style="text-align:center;">
+                                        <div class="form-actions no-margin-bottom" style="">
                                             <input type="submit" value="Salvar Contrato" class="btn btn-primary btn-lg " />
                                         </div>
                                     </form>

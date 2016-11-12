@@ -82,27 +82,14 @@
                                         <tr class="odd gradeX">
                                             <td class="center">12345</td>
                                             <td class="center">Flavio Rodrigo Cabral Pereira</td>
-                                            <td class="center">Win 95+</td>
+                                            <td class="center">11111111111</td>
                                             <td class="center">083 98157-7582</td>
                                             <td style="text-align: center;">
                                                 <button class="btn" data-toggle="modal" data-target="#formModal"><i class="icon-eye-open"></i> Ver </button>
-                                                <button class="btn btn-primary" onClick="javascript:window.location.href='editarcontrato.php'"><i class="icon-pencil icon-white"></i> Edit</button>
+                                                <button class="btn btn-primary" onClick="javascript:window.location.href='editarcontrato.php'"><i class="icon-pencil icon-white"></i> Editar</button>
                                                 <button class="btn btn-danger"><i class="icon-remove icon-white"></i> Delete</button>
                                             </td>
                                         </tr>
-                                        <tr class="even gradeC">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5</td>
-                                            <td style="text-align: center;">
-                                                <button class="btn"><i class="icon-eye-open"></i> View</button>
-                                                <button class="btn btn-primary"><i class="icon-pencil icon-white"></i> Edit</button>
-                                                <button class="btn btn-danger"><i class="icon-remove icon-white"></i> Delete</button>
-                                            </td>
-
-                                        </tr>
-
                                     </tbody>
                                 </table>
                             </div>
@@ -115,7 +102,6 @@
         </div>
        <!--END PAGE CONTENT -->
         <div class="row">
-
             <div class="col-lg-12">
                 <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
