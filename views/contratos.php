@@ -1,15 +1,19 @@
 ﻿<?php
-    include_once '..\controller\Controller.class.php';
+    include_once '../controller/Controller.class.php';
+    include_once '../model/Contrato.class.php';
 
     session_start();
     $_SESSION['nome'];
     $c = new Controller();
-    $c->logouf();
 
     if(!$c->verificaLogin()){
         header('Location: ../index.php');
         exit;
     }
+
+    $c->logouf();
+    
+    $lista = $c->listaContratos();
 
 ?>
 <!DOCTYPE html>
@@ -79,17 +83,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php if ($lista): ?>
+                                        <?php foreach ($lista as $contratos):  ?>
                                         <tr class="odd gradeX">
-                                            <td class="center">12345</td>
-                                            <td class="center">Flavio Rodrigo Cabral Pereira</td>
-                                            <td class="center">11111111111</td>
-                                            <td class="center">083 98157-7582</td>
+                                            <td class="center"><?php echo $contratos['matricula'] ?></td>
+                                            <td class="center"><?php echo $contratos['ntitular'] ?></td>
+                                            <td class="center"><?php echo $contratos['cpf'] ?></td>
+                                            <td class="center"><?php echo $contratos['telefone'] ?></td>
                                             <td style="text-align: center;">
                                                 <button class="btn" data-toggle="modal" data-target="#formModal"><i class="icon-eye-open"></i> Ver </button>
                                                 <button class="btn btn-primary" onClick="javascript:window.location.href='editarcontrato.php'"><i class="icon-pencil icon-white"></i> Editar</button>
                                                 <button class="btn btn-danger"><i class="icon-remove icon-white"></i> Delete</button>
                                             </td>
                                         </tr>
+                                    <?php endforeach; ?>
+                                    <?php endif; ?>
                                     </tbody>
                                 </table>
                             </div>

@@ -1,10 +1,24 @@
 ﻿<?php
+    include_once '../controller/Controller.class.php';
+    include_once '../model/Contrato.class.php';
+
     session_start();
+    $c = new Controller();
+
+    if(!$c->verificaLogin()){
+        header('Location: ../index.php');
+        exit;
+    }
+
+    $c->logouf();
+    $c->contratos();
+
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="pt-br" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="pt-br" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="pt-br"> <!--<![endif]-->
+<!--[if !IE]><!-->
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
 
  <!-- BEGIN HEAD -->
 <head>
@@ -76,7 +90,7 @@
                                     </div>
 
                                 </header>
-                                    <form action="#" class="form-horizontal">
+                                    <form method="get" class="form-horizontal">
                                         <div id="collapseOne" class="accordion-body collapse in body">
                                         <div class="form-group" >
                                             <label class="control-label col-lg-4">Matricula</label>
@@ -101,8 +115,8 @@
                                                 <div class="col-lg-2">
                                                     <select name="option" id="ption" class="validate[required] form-control" required>
                                                         <option value="">Escolha uma opção ...</option>
-                                                        <option value="option1">Masculino</option>
-                                                        <option value="option2">Feminino</option>
+                                                        <option value="masculino">Masculino</option>
+                                                        <option value="feminino">Feminino</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -187,10 +201,10 @@
                                             <div class="form-group">
                                                 <label class="control-label col-lg-4">Status</label>
                                                 <div class="col-lg-2">
-                                                    <select name="option" id="ption" class="validate[required] form-control" required>
+                                                    <select name="option1" id="ption1" class="validate[required] form-control" required>
                                                         <option value="">Escolha uma opção ...</option>
-                                                        <option value="option1">Aberto</option>
-                                                        <option value="option2">Fechado</option>
+                                                        <option value="aberto">Aberto</option>
+                                                        <option value="fechado">Fechado</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -294,8 +308,9 @@
                                         <div class="col-lg-2">
                                             <input type="text" id="dtnasc10" name="dtnasc10" class="form-control">
                                         </div>
-                                        <div class="form-actions no-margin-bottom" style="">
-                                            <input type="submit" value="Salvar Contrato" class="btn btn-primary btn-lg " />
+                                        <div class="form-actions no-margin-bottom">
+                                            <button type="submit" name="salvar" class="btn btn-primary">Salvar</button>
+                                            <button class="btn btn-primary" onClick="javascript:window.location.href='contratos.php'">Voltar</button>
                                         </div>
                                     </form>
                             </div>

@@ -1,6 +1,10 @@
 <?php
 
+
 class Controller {
+    public $cadastro;
+    public $delete;
+    public $update;
 
     function login() {
       
@@ -49,8 +53,7 @@ class Controller {
     
     function logouf(){
         if (isset($_REQUEST['logouf'])) {
-            
-        
+
         session_start();
         
         if (isset($_SESSION['login'])) {
@@ -63,158 +66,155 @@ class Controller {
         }
     }
 
-    function cadastro() {
-        
-        if (!$this->verificaLogin()) {
-            header('Location: ../views/login.php');
+    function contratos(){
+        if(!$this->verificaLogin()){
+            header('Location: ../index.php');
             exit;
         }
-     
-        if (isset($_REQUEST['cadastrar'])) {
 
-            $nome = $_REQUEST['nome'];
-            $sobrenome = $_REQUEST['sobrenome'];
+        if(isset($_REQUEST['salvar'])){
+            $mat = $_REQUEST['matricula'];
+            $nome = $_REQUEST['ntitular'];
+            $opt = $_REQUEST['option'];
+            $nasc = $_REQUEST['dtnasc'];
+            $cpf = $_REQUEST['cpf'];
+            $rg = $_REQUEST['rg'];
+            $org = $_REQUEST['org'];
+            $prof = $_REQUEST['profissao'];
+            $mae = $_REQUEST['mae'];
+            $end = $_REQUEST['end'];
+            $num = $_REQUEST['num'];
+            $bairro = $_REQUEST['bairro'];
+            $cid = $_REQUEST['cidade'];
+            $uf = $_REQUEST['uf'];
+            $cep = $_REQUEST['cep'];
+            $tel = $_REQUEST['telefone'];
             $email = $_REQUEST['email'];
-            $opcao = $_REQUEST['option'];
-            $login = $_REQUEST['login'];
-            $senha = $_REQUEST['senha'];
+            $opt1 = $_REQUEST['option1'];
+            $dp1 = $_REQUEST['dp1'];
+            $dt1 = $_REQUEST['dtnasc1'];
+            $dp2 = $_REQUEST['dp2'];
+            $dt2 = $_REQUEST['dtnasc2'];
+            $dp3 = $_REQUEST['dp3'];
+            $dt3 = $_REQUEST['dtnasc3'];
+            $dp4 = $_REQUEST['dp4'];
+            $dt4 = $_REQUEST['dtnasc4'];
+            $dp5 = $_REQUEST['dp5'];
+            $dt5 = $_REQUEST['dtnasc5'];
+            $dp6 = $_REQUEST['dp6'];
+            $dt6 = $_REQUEST['dtnasc6'];
+            $dp7 = $_REQUEST['dp7'];
+            $dt7 = $_REQUEST['dtnasc7'];
+            $dp8 = $_REQUEST['dp8'];
+            $dt8 = $_REQUEST['dtnasc8'];
+            $dp9 = $_REQUEST['dp9'];
+            $dt9 = $_REQUEST['dtnasc9'];
+            $dp10 = $_REQUEST['dp10'];
+            $dt10 = $_REQUEST['dtnasc10'];
 
-            $cad = new Usuario();
-            $this->cadastro = $cad->addUsuario($nome, $sobrenome, $email, $opcao, $login, $senha);
+            $cad =  new Contrato();
+
+            $this->cadastro = $cad->addContrato($mat, $nome, $opt, $nasc, $cpf, $rg, $org, $prof, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $opt1, $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10);
+
+
         }
-      }  
-     
-    function listaUsuarios(){
-        $usu = new Usuario();
-        $lista = $usu->listaUsuarios();
-        
-        return $lista;
-    }
-            
-    function buscaUsuario(){
-        if (isset($_REQUEST['id'])) {
-            $id = $_REQUEST['id'];
-            $usu = new Usuario();
-            $usuario = $usu->buscaUsuario($id);
-            
-            return $usuario;
-        }
-    }
-    
-    function editar(){
-        $resp = false;
-        
-        if (!$this->verificaLogin()) {
-            header('Location: ../views/login.php');
-            exit;
-        }
-        
-        if (isset($_REQUEST['editar'])) {
-            $id = $_REQUEST['id'];
-            $nome = $_REQUEST['nome'];
-            $sobrenome = $_REQUEST['sobrenome'];
-            $email = $_REQUEST['email'];
-            $perfil = $_REQUEST['option'];
-            $login = $_REQUEST['login'];
-            $senha = $_REQUEST['senha'];
-            
-            $usu = new Usuario();
-            if ($usu->updateUsuario($id, $nome, $sobrenome, $email, $perfil, $login, $senha)) {
-                $this->resp = TRUE;
-                header('Location: ../views/lista_usuarios.php');
+
+        if(isset($_REQUEST['delete'])){
+            $mat = $_REQUEST['cod'];
+            $con = new Contrato();
+
+            $this->delete = $con->deleteContrato($mat);
+
+            if($this->delete){
+                header('Location: views/contratos.php');
                 exit;
             }
         }
-        
-        if (isset($_REQUEST['excluir'])) {
-            $id = $_REQUEST['id'];
-            $usu = new Usuario();
-                if($usu->deleteUsuario($id)){
-                    header('Location: ../views/lista_usuarios.php');
-                    exit;
-                }
-            }
+
+    }
+
+    function editarContrato(){
+        if(!$this->verificaLogin()){
+            header('Location: ../index.php');
+            exit;
+        }
+
+        if(isset($_REQUEST['editar'])){
+            $id = $_REQUEST['cod'];
+            $nome = $_REQUEST['ntitular'];
+            $nasc = $_REQUEST['dtnasc'];
+            $opt = $_REQUEST['option'];
+            $cpf = $_REQUEST['cpf'];
+            $rg = $_REQUEST['rg'];
+            $org = $_REQUEST['org'];
+            $prof = $_REQUEST['profissao'];
+            $num = $_REQUEST['num'];
+            $bairro = $_REQUEST['bairro'];
+            $cid = $_REQUEST['cidade'];
+            $uf = $_REQUEST['uf'];
+            $cep = $_REQUEST['cep'];
+            $tel = $_REQUEST['telefone'];
+            $email = $_REQUEST['email'];
+            $opt1 = $_REQUEST['option1'];
+            $dp1 = $_REQUEST['dp1'];
+            $dt1 = $_REQUEST['dtnasc1'];
+            $dp2 = $_REQUEST['dp2'];
+            $dt2 = $_REQUEST['dtnasc2'];
+            $dp3 = $_REQUEST['dp3'];
+            $dt3 = $_REQUEST['dtnasc3'];
+            $dp4 = $_REQUEST['dp4'];
+            $dt4 = $_REQUEST['dtnasc4'];
+            $dp5 = $_REQUEST['dp5'];
+            $dt5 = $_REQUEST['dtnasc5'];
+            $dp6 = $_REQUEST['dp6'];
+            $dt6 = $_REQUEST['dtnasc6'];
+            $dp7 = $_REQUEST['dp7'];
+            $dt7 = $_REQUEST['dtnasc7'];
+            $dp8 = $_REQUEST['dp8'];
+            $dt8 = $_REQUEST['dtnasc8'];
+            $dp9 = $_REQUEST['dp9'];
+            $dt9 = $_REQUEST['dtnasc9'];
+            $dp10 = $_REQUEST['dp10'];
+            $dt10 = $_REQUEST['dtnasc10'];
+
+            $upd = new Contrato();
+
+            $this->update = $upd->editeContrato($id, $nome, $nasc, $opt, $cpf, $rg, $org, $prof, $num, $bairro, $cid, $uf, $cep, $tel, $email, $opt1, $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10);
+
+
+        }
     }
             
-    function listaChamados() {
-        $chm = new Chamado();
-        $listaChamados = $chm->listaChamados();
+    function listaContratos() {
+        $chm = new Contrato();
+        $lista = $chm->listaContratos();
 
-        return $listaChamados;
+        return $lista;
     }
     
-    function chamadosAbertos(){
-        $chm = new Chamado();
+    function contratosAbertos(){
+        $chm = new Contrato();
         $abertos = $chm->listaAbertos();
         
         return $abertos;
     } 
     
-    function chamadosFechados(){
-        $chm = new Chamado();
+    function contratosFechados(){
+        $chm = new Contrato();
         $fechados = $chm->listaFechados();
         
         return $fechados;
     }
-    
-    function buscaChamado() {
-        if (isset($_REQUEST['cod'])) {
+
+    function deleteContrato() {
+        if (isset($_REQUEST['delete'])) {
             $cod = $_REQUEST['cod'];
-            $chm = new Chamado();
-            $chamado = $chm->buscaChamado($cod);
+            $chm = new Contrato();
+            $status = $chm->deleteContrato($cod);
 
-            return $chamado;
+            return $status;
         }
     }
 
-    function responder() {
-        
-        if (!$this->verificaLogin()) {
-            header('Location: ../views/login.php');
-            exit;
-        }
-        
-         if (isset($_REQUEST['salvar'])) {
-            
-            session_start();
-            
-            $usuario = $_REQUEST['usuario'];
-            $cod = $_REQUEST['cod'];
-            $email = $_REQUEST['email'];
-            $status = $_REQUEST['option'];
-            $resposta = $_REQUEST['resposta'];
-            $func = $_SESSION['login'];
-            
-            $chm = new Chamado();
-            $resutl = $chm->editeChamado($cod, $status, $resposta, $func);
-
-            if ($resutl) {
-                $this->emailResposta($usuario, $email, $tipo, $resposta);
-                header('Location: ../views/abertos.php');
-                exit;
-            }
-        }
-    }
-    
-    function emailRecebimento($nome, $email, $opcao){
-        $to = $email;
-        $subject = $opcao;
-        $message = "Senhor(a) " . $nome . ", ". "\r\n".
-            "sua mensagem foi enviada com sucesso, em no máximo 48 horas estaremos retornando o contato. \r\n".
-            "Agradecemos o seu contato.";
-        $headers = 'From: flaviorcabral@gmail.com'.'\r\n'.'MIME-Version: 1.0'.'\r\n' . 'Content-type: text/html; charset=utf-8';
-        mail($to, $subject, $message, $headers);
-    }
-    
-    function emailResposta($nome, $email, $opcao, $resp){
-        $to = $email;
-        $subject = $opcao;
-        $message = "Senhor(a) " . $nome . ", ". "\r\n".
-            "Referente ao contato segue resposta a sua solicitação: \r\n".
-            $resp . "\r\n" .    
-            "Agradecemos o seu contato.";
-        $headers = 'From: flaviorcabral@gmail.com'.'\r\n'.'MIME-Version: 1.0'.'\r\n' . 'Content-type: text/html; charset=utf-8';
-        mail($to, $subject, $message, $headers);
-    }
 
 }

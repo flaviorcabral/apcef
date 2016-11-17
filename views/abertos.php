@@ -54,6 +54,9 @@
                         <div class="panel-heading">
                           <h3>Planos Abertos</h3>
                         </div>
+                        <div style="position: relative; top: -30px; left: -30px;">
+                            <button class="btn btn-success" style="position: relative; left: 950px; top: -20px;" onClick="javascript:window.location.href='formulario.php'"><i class="icon-plus-sign icon-white"></i> Add Plano</button>
+                        </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
