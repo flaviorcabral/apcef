@@ -1,9 +1,9 @@
 ﻿<?php
     include_once '../controller/Controller.class.php';
     include_once '../model/Contrato.class.php';
+    //include '../config.php';
 
     session_start();
-    $_SESSION['nome'];
     $c = new Controller();
 
     if(!$c->verificaLogin()){
@@ -75,6 +75,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
+                                            <th>Status</th>
                                             <th>Matricula</th>
                                             <th>Titular</th>
                                             <th>CPF</th>
@@ -86,6 +87,7 @@
                                         <?php if ($lista): ?>
                                         <?php foreach ($lista as $contratos):  ?>
                                         <tr class="odd gradeX">
+                                            <td class="center"><?php echo $contratos['status'] ?></td>
                                             <td class="center"><?php echo $contratos['matricula'] ?></td>
                                             <td class="center"><?php echo $contratos['ntitular'] ?></td>
                                             <td class="center"><?php echo $contratos['cpf'] ?></td>

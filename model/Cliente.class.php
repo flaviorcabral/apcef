@@ -18,27 +18,6 @@ class Cliente {
         return FALSE;
     }
 
-    /*function addCliente($mat,$nome,$dtnasc)
-    {
-        try {
-            $sql = "INSERT INTO clientes VALUES (?,?,?)";
-            $stmt = Conexao::getConexao()->prepare($sql);
-            $stmt->bindValue(1, $mat);
-            $stmt->bindValue(2, $nome);
-            $stmt->bindValue(3, $dtnasc);
-            $stmt->execute();
-
-            return 'Cliente inserido com sucesso!';
-        }catch (Exception $ex){
-            if($ex->errorInfo[1] == 1062){
-                return 'Cliente já cadastrado';
-            }else{
-                return 'Erro ao cadastrar Cliente';
-            }
-        }
-
-    }*/
-
     function deletecliente($mat) {
         if ($this->con->exec("DELETE FROM clientes WHERE matricula = '{$mat}'")) {
 
@@ -66,6 +45,12 @@ class Cliente {
         }
 
         return FALSE;
+    }
+
+    function total(){
+        $result = $this->con->exec("SELECT COUNT(*) FROM clientes");
+
+        return $result;
     }
 
 }

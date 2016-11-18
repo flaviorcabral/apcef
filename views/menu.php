@@ -1,4 +1,14 @@
+<?php
+        include_once '../controller/Controller.class.php';
+        include_once '../model/Cliente.class.php';
+        include_once '../model/Contrato.class.php';
 
+        $chm = new Controller();
+        $totalContratos = $chm->totalContratos();
+        $totalContratosAbertos = $chm->totalContAbertos();
+        $totalClientes = $chm->totalClientes();
+
+?>
 <!-- HEADER SECTION -->
         <div id="top">
 
@@ -51,7 +61,7 @@
                         <span class="pull-right">
                           <i class="icon-angle-left"></i>
                         </span>
-                &nbsp; <span class="label label-default">10</span>&nbsp;
+                &nbsp; <span class="label label-default"><?php echo var_dump($totalContratos); ?></span>&nbsp;
             </a>
         </li>
         <li class="panel ">
@@ -61,18 +71,18 @@
                         <span class="pull-right">
                             <i class="icon-angle-left"></i>
                         </span>
-                &nbsp; <span class="label label-success">5</span>&nbsp;
+                &nbsp; <span class="label label-success"><?php echo var_dump($totalClientes); ?></span>&nbsp;
             </a>
         </li>
 
         <li class="panel">
             <a href="../views/abertos.php" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#pagesr-nav">
-                <i class="icon-table"></i> Planos em aberto
+                <i class="icon-table"></i> Planos Abertos
 
                         <span class="pull-right">
                             <i class="icon-angle-left"></i>
                         </span>
-                &nbsp; <span class="label label-info">6</span>&nbsp;
+                &nbsp; <span class="label label-info"><?php echo var_dump($totalContratosAbertos); ?></span>&nbsp;
             </a>
         </li>
        </ul>

@@ -14,10 +14,29 @@ class Contrato{
     function addContrato($mat, $nome, $nasc, $sexo, $cpf, $rg, $org, $profissao, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $status, $n1, $c1, $n2, $c2, $n3, $c3, $n4, $c4, $n5, $c5, $n6, $c6, $n7, $c7, $n8, $c8, $n9, $c9, $n10, $c10) {
         $data = date('d-m-y');
         if($this->con->exec("INSERT INTO planos (matricula, dtabertura, ntitular, sexo, dtnasc, cpf, rg, org, profissao, mae, endereco, num, bairro, cidade, uf, cep, telefone, email, status, ndep1, data1, ndep2, data2, ndep3, data3, ndep4, data4, ndep5, data5, ndep6, data6, ndep7, data7, ndep8, data8, ndep9, data9, ndep10, data10) VALUES ('{$mat}', '{$data}' ,'{$nome}', '{$nasc}', '{$sexo}', '{$cpf}','{$rg}', '{$org}', '{$profissao}', '{$mae}', '{$end}', '{$num}', '{$bairro}', '{$cid}', '{$uf}', '{$cep}', '{$tel}', '{$email}', '{$status}', '{$n1}', '{$c1}', '{$n2}', '{$c2}','{$n3}', '{$c3}', '{$n4}', '{$c4}', '{$n5}', '{$c5}', '{$n6}', '{$c6}', '{$n7}', '{$c7}', '{$n8}', '{$c8}', '{$n9}', '{$c9}', '{$n10}','{$c10}')")){
-         
-        return true;
+
+            $nmdepend = array($nome, $n1, $n2, $n3, $n4, $n5, $n6, $n7, $n8, $n9, $n10);
+            $dtdepend = array($nasc, $c1, $c2, $c3,$c4, $c5, $c6, $c7, $c8, $c9, $c10);
+
+            $sizenm = count($nmdepend);
+            $sizedt = count($dtdepend);
+
+            for($x = 0; $x <= $sizenm; $x++){
+                $depend = $nmdepend[$x];
+                for($y = 0; $y <= $sizedt; $y++){
+                    $dataNasc = $dtdepend[$y];
+                if ($depend != '') {
+                    $this->con->exec("INSERT INTO clientes (matricula, nome, dtnasc) VALUES ('{$mat}', '{$depend}', '{$dataNasc}')");
+                }
+                }
+            }
+
+            return true;
+
         }
+
         return false;
+
     }
     
     function editeContrato($id, $nome, $nasc, $sexo, $cpf, $rg, $org, $profissao, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $status , $n1, $c1, $n2, $c2, $n3, $c3, $n4, $c4, $n5, $c5, $n6, $c6, $n7, $c7, $n8, $c8, $n9, $c9, $n10, $c10){
@@ -63,6 +82,18 @@ class Contrato{
             return true;
         }
         return false;
+    }
+
+    function total(){
+        $total = $this->con->exec("SELECT COUNT(*) FROM planos");
+
+        return $total;
+    }
+
+    function totalAbertos(){
+        $total = $this->con->exec("SELECT COUNT(*) FROM planos WHERE status = 'aberto'");
+
+        return $total;
     }
 }
 

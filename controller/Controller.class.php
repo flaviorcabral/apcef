@@ -216,5 +216,33 @@ class Controller {
         }
     }
 
+    function listaClientes(){
+        $chm = new Cliente();
+        $clientes = $chm->listaClientes();
+
+        return $clientes;
+    }
+
+    function totalContratos(){
+        $chm = new Contrato();
+        $total = $chm->total();
+
+        return $total;
+    }
+
+    function totalContAbertos(){
+        $chm = new Contrato();
+        $total = $chm->totalAbertos();
+
+        return $total;
+    }
+
+    function totalClientes(){
+        $chm = new Cliente();
+        $total = $chm->total();
+
+        return $total;
+    }
+
 
 }

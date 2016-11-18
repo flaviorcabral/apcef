@@ -1,6 +1,18 @@
 ﻿<?php
+    include_once '../controller/Controller.class.php';
+    include_once '../model/Cliente.class.php';
 
-session_start();
+    session_start();
+    $c = new Controller();
+
+    if(!$c->verificaLogin()){
+        header('Location: ../index.php');
+        exit;
+    }
+
+    $c->logouf();
+
+    $lista = $c->listaClientes();
 
 ?>
 <!DOCTYPE html>
@@ -70,16 +82,20 @@ session_start();
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php if($lista): ?>
+                                        <?php foreach($lista as $clientes): ?>
                                         <tr class="odd gradeX">
-                                            <td class="center">12345</td>
-                                            <td class="center">Flavio Rodrigo Cabral Pereira</td>
-                                            <td class="center">Win 95+</td>
+                                            <td class="center"><?php echo $clientes['matricula']; ?></td>
+                                            <td class="center"><?php echo $clientes['nome']; ?></td>
+                                            <td class="center"><?php echo $clientes['dtnasc']; ?></td>
                                             <td style="text-align: center;">
                                                 <button class="btn" data-toggle="modal" data-target="#formModal"><i class="icon-eye-open"></i> Ver </button>
                                                 <button class="btn btn-primary" onClick="javascript:window.location.href='editarcliente.php'"><i class="icon-pencil icon-white"></i> Editar</button>
                                                 <button class="btn btn-danger"><i class="icon-remove icon-white"></i> Delete</button>
                                             </td>
                                         </tr>
+                                        <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </tbody>
                                 </table>
                             </div>

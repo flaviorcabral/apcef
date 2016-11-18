@@ -7,12 +7,12 @@
     $c = new Contrato();
     $cli = new Cliente();
 
-    //$result = $cli->deletecliente('teste');
+    $result = $c->totalAbertos();
    //$result = $c->listaAbertos();
-   // $result = $c->deleteContrato('teste8');
-   // $result = $cli->addCliente('teste', 'Maria de Lourdes', '10/09/1951');
+   //$result = $c->deleteContrato('teste11');
+   //$result = $cli->addCliente('teste10', 'Maria de Lourdes', '10/09/1951');
 
-    $result = $c->addContrato('teste11','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','maria','10/09/1951');
+    /*$result = $c->addContrato('teste11','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','maria','10/09/1951');*/
 
 
     //$result = $c->deleteContrato('6');
