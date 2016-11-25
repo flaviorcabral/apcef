@@ -53,6 +53,9 @@
                 <input type="text" name="usuario" placeholder="Usuário" class="form-control" />
                 <input type="password" name="senha" placeholder="Senha" class="form-control" />
                 <button class="btn text-muted text-center btn-danger" name="login" type="submit">Acessar</button>
+                <?php if ($c->login)
+                    echo '<h4 class = "alert alert-warning" style = "margin: 10px auto; text-align: center">' . $c->login . '</h4>';
+                 ?>
             </form>
         </div>
     </div>

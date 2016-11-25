@@ -61,7 +61,7 @@
                         <span class="pull-right">
                           <i class="icon-angle-left"></i>
                         </span>
-                &nbsp; <span class="label label-default"><?php echo var_dump($totalContratos); ?></span>&nbsp;
+                &nbsp; <span class="label label-default"><?php  ?></span>&nbsp;
             </a>
         </li>
         <li class="panel ">

@@ -19,9 +19,9 @@ class Cliente {
     }
 
     function deletecliente($mat) {
-        if ($this->con->exec("DELETE FROM clientes WHERE matricula = '{$mat}'")) {
+        if ($this->con->exec("DELETE FROM clientes WHERE id = '{$mat}'")) {
 
-            return TRUE;
+            return 'Cliente deletado com Sucesso!';
         }
 
         return FALSE;
@@ -51,6 +51,26 @@ class Cliente {
         $result = $this->con->exec("SELECT COUNT(*) FROM clientes");
 
         return $result;
+    }
+
+    function buscaClientes($name, $date) {
+        $lista = $this->con->query("SELECT * FROM clientes WHERE nome = '{$name}' AND dtnasc = '{$date}'");
+
+        if ($lista->rowCount() > 0) {
+
+            return $lista->fetch(PDO::FETCH_ASSOC);
+        }
+        return FALSE;
+    }
+
+    function buscar($id){
+        $cliente = $this->con->query("SELECT * FROM clientes WHERE id = '{$id}'");
+
+        if ($cliente->rowCount() > 0) {
+
+            return $cliente->fetch(PDO::FETCH_ASSOC);
+        }
+        return FALSE;
     }
 
 }

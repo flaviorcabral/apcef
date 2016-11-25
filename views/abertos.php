@@ -13,6 +13,7 @@
     $c->logouf();
 
     $abertos = $c->contratosAbertos();
+    $c->deleteContrato();
 
 ?>
 <!DOCTYPE html>
@@ -66,10 +67,14 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                           <h3>Planos Abertos</h3>
-                        </div>
-                        <div style="position: relative; top: -30px; left: -30px;">
+                            <?php if (isset($_GET['info'])):?>
+                                <?php $info=$_REQUEST['info'];  ?>
+                                <?php echo '<h4 class = "alert alert-success" style = "margin: 10px auto; text-align:                                           center">' . $info . '</h4>'; ?>
+                            <?php endif; ?>
                             <button class="btn btn-success" style="position: relative; left: 950px; top: -20px;" onClick="javascript:window.location.href='formulario.php'"><i class="icon-plus-sign icon-white"></i> Add Plano</button>
+
                         </div>
+
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -80,7 +85,9 @@
                                             <th>Titular</th>
                                             <th>CPF</th>
                                             <th>Telefone</th>
-                                            <th style="text-align: center;">Opções</th>
+                                            <th style="text-align: center;">Ver</th>
+                                            <th style="text-align: center;">Edite</th>
+                                            <th style="text-align: center;">Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -94,8 +101,15 @@
                                             <td class="center"><?php echo $contratos['telefone']; ?></td>
                                             <td style="text-align: center;">
                                                 <button class="btn" data-toggle="modal" data-target="#formModal"><i class="icon-eye-open"></i> Ver </button>
-                                                <button class="btn btn-primary" onClick="javascript:window.location.href='editarcontrato.php'"><i class="icon-pencil icon-white"></i> Editar</button>
-                                                <button class="btn btn-danger"><i class="icon-remove icon-white"></i> Delete</button>
+                                            </td>
+                                            <td style="text-align: center;">
+                                                <button class="btn btn-primary" onClick="javascript:window.location.href='editarcontrato.php?cod=<?php echo $contratos['matricula']; ?>'"><i class="icon-pencil icon-white"></i>Editar</button>
+                                            </td>
+                                            <td style="text-align: center;">
+                                                <form>
+                                                    <input type="hidden" name="cod" value="<?php echo $contratos['matricula']; ?>" />
+                                                    <button class="btn btn-danger" name="delete"><i class="icon-remove icon-white"></i>Deletar</button>
+                                                </form>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>

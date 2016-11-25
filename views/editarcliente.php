@@ -1,5 +1,20 @@
 ﻿<?php
+    include_once '../controller/Controller.class.php';
+    include_once '../model/Cliente.class.php';
+
     session_start();
+    $c = new Controller();
+
+    if(!$c->verificaLogin()){
+        header('Location: ../index.php');
+        exit;
+    }
+
+    $c->logouf();
+    $id = $_REQUEST['id'];
+    $cliente = $c->buscaCliente($id);
+
+
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="pt-br" class="ie8"> <![endif]-->
@@ -81,23 +96,23 @@
                                         <div class="form-group" >
                                             <label class="control-label col-lg-4">Matricula</label>
                                             <div class="col-lg-2">
-                                                <input type="text" id="matricula" name="matricula" class="form-control" readonly="readonly"/>
+                                                <input type="text" id="matricula" name="matricula" value="<?php echo $cliente['matricula']; ?>" class="form-control" readonly="readonly"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-lg-4">Nome do cliente</label>
                                             <div class="col-lg-4">
-                                                <input type="text" id="titular" name="ntitular" class="form-control"  />
+                                                <input type="text" id="titular" name="nome" value="<?php echo $cliente['nome']; ?>" class="form-control"  />
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-lg-4">Data de Nascimento</label>
                                             <div class="col-lg-4">
-                                                <input type="text" id="dtnasc" name="dtnasc" class="form-control" />
+                                                <input type="text" id="dtnasc" name="dtnasc" value="<?php echo $cliente['dtnasc']; ?>" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-actions no-margin-bottom" style="">
-                                            <input type="submit" value="Salvar" class="btn btn-primary btn-lg " />
+                                            <button type="submit" name="editar" class="btn btn-primary">Salvar Edição</button>
                                         </div>
                                     </form>
                             </div>

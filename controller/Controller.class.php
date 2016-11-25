@@ -2,9 +2,13 @@
 
 
 class Controller {
-    public $cadastro;
-    public $delete;
-    public $update;
+
+    public $login = false;
+    public $cadastro = false;
+    public $deleteCliente = false;
+    public $deleteContrato = false;
+    public $update = false;
+    public $listaClientes;
 
     function login() {
       
@@ -36,8 +40,8 @@ class Controller {
                     header('Location: views/contratos.php');
                     exit;
                 } else {
-                    header('Location: index.php');
-                    exit;
+
+                    $this->login = 'Usuáro/Senha incorretos!';
                 }
             }
         
@@ -114,9 +118,11 @@ class Controller {
 
             $cad =  new Contrato();
 
-            $this->cadastro = $cad->addContrato($mat, $nome, $opt, $nasc, $cpf, $rg, $org, $prof, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $opt1, $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10);
-
-
+            if($cad->addContrato($mat, $nome, $opt, $nasc, $cpf, $rg, $org, $prof, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $opt1, $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10)){
+                $this->cadastro = 'Plano cadastrado com Sucesso!';
+            }else{
+                $this->cadastro = 'Matricula já existente!!!';
+            }
         }
 
         if(isset($_REQUEST['delete'])){
@@ -140,14 +146,16 @@ class Controller {
         }
 
         if(isset($_REQUEST['editar'])){
-            $id = $_REQUEST['cod'];
+            $mat = $_REQUEST['cod'];
             $nome = $_REQUEST['ntitular'];
             $nasc = $_REQUEST['dtnasc'];
-            $opt = $_REQUEST['option'];
+            $sexo = $_REQUEST['sexo'];
             $cpf = $_REQUEST['cpf'];
             $rg = $_REQUEST['rg'];
             $org = $_REQUEST['org'];
-            $prof = $_REQUEST['profissao'];
+            $profissao = $_REQUEST['profissao'];
+            $mae = $_REQUEST['mae'];
+            $end = $_REQUEST['end'];
             $num = $_REQUEST['num'];
             $bairro = $_REQUEST['bairro'];
             $cid = $_REQUEST['cidade'];
@@ -155,7 +163,7 @@ class Controller {
             $cep = $_REQUEST['cep'];
             $tel = $_REQUEST['telefone'];
             $email = $_REQUEST['email'];
-            $opt1 = $_REQUEST['option1'];
+            $status = $_REQUEST['status'];
             $dp1 = $_REQUEST['dp1'];
             $dt1 = $_REQUEST['dtnasc1'];
             $dp2 = $_REQUEST['dp2'];
@@ -179,10 +187,15 @@ class Controller {
 
             $upd = new Contrato();
 
-            $this->update = $upd->editeContrato($id, $nome, $nasc, $opt, $cpf, $rg, $org, $prof, $num, $bairro, $cid, $uf, $cep, $tel, $email, $opt1, $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10);
+            $this->update = $upd->editeContrato($mat, $nome, $nasc, $sexo, $cpf, $rg, $org, $profissao, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $status , $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10);
 
+            if($this->update){
+                $this->update = 'Informações editadas com Sucesso!';
+                header('Location: contratos.php?info='.$this->update);
+            }
 
         }
+
     }
             
     function listaContratos() {
@@ -210,17 +223,17 @@ class Controller {
         if (isset($_REQUEST['delete'])) {
             $cod = $_REQUEST['cod'];
             $chm = new Contrato();
-            $status = $chm->deleteContrato($cod);
+            $this->deleteContrato = $chm->deleteContrato($cod);
+            echo "<script>location.href='contratos.php?info=$this->deleteContrato' </script>";
 
-            return $status;
         }
     }
 
-    function listaClientes(){
-        $chm = new Cliente();
-        $clientes = $chm->listaClientes();
+    function buscarContrato($cod){
+        $chm = new Contrato();
+        $result = $chm->buscaContrato($cod);
 
-        return $clientes;
+        return $result;
     }
 
     function totalContratos(){
@@ -237,11 +250,42 @@ class Controller {
         return $total;
     }
 
+    function buscaTitular($mat){
+        $chm = new Contrato();
+        $titular = $chm->buscarTitular($mat);
+
+        return $titular;
+    }
+
+    function listaClientes(){
+        $chm = new Cliente();
+        $clientes = $chm->listaClientes();
+
+        return $clientes;
+    }
+
+    function buscaCliente($cod){
+        $chm = new Cliente();
+        $result = $chm->buscaClientes($cod);
+
+        return $result;
+    }
+
     function totalClientes(){
         $chm = new Cliente();
         $total = $chm->total();
 
         return $total;
+
+       }
+
+    function deleteCliente(){
+        if (isset($_REQUEST['delete'])) {
+            $cod = $_REQUEST['cod'];
+            $chm = new Cliente();
+            $this->deleteCliente = $chm->deletecliente($cod);
+            echo "<script>location.href='clientes.php?info=$this->deleteCliente' </script>";
+        }
     }
 
 

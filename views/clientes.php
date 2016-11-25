@@ -13,6 +13,7 @@
     $c->logouf();
 
     $lista = $c->listaClientes();
+    $c->deleteCliente();
 
 ?>
 <!DOCTYPE html>
@@ -22,20 +23,21 @@
 
  <!-- BEGIN HEAD -->
 <head>
-     <meta charset="UTF-8" lang="pt-br" />
+    <meta charset="UTF-8" lang="pt-br" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCORE Admin Dashboard Template | Data Tables</title>
      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
      <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
     <!-- GLOBAL STYLES -->
     <!-- GLOBAL STYLES -->
     <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/MoneAdmin.css" />
+    <link rel="stylesheet" href="../css/MoneAdmin.css"/>
     <link rel="stylesheet" href="../plugins/Font-Awesome/css/font-awesome.css" />
     <!--END GLOBAL STYLES -->
 
@@ -66,10 +68,12 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                           <h3>Lista de Clientes</h3>
+                            <?php if (isset($_REQUEST['info'])):?>
+                            <?php    $info = $_REQUEST['info']; ?>
+                            <?php    echo '<h4 class = "alert alert-danger" style = "margin: 10px auto; text-align:                                           center">' . $info . '</h4>'; ?>
+                            <?php endif; ?>
                         </div>
-                        <div style="position: relative; top: -30px; left: -30px;">
-                            <button class="btn btn-success" style="position: relative; left: 950px; top: -20px;" onClick="javascript:window.location.href='cadcliente.php'"><i class="icon-plus-sign icon-white"></i> Add Cliente</button>
-                        </div>
+
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -78,7 +82,9 @@
                                             <th>Matricula</th>
                                             <th>Nome</th>
                                             <th>Data Nascimento</th>
-                                            <th style="text-align: center;">Opções</th>
+                                            <th style="text-align: center;">Ver</th>
+                                            <th style="text-align: center;">Edite</th>
+                                            <th style="text-align: center;">Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -90,8 +96,16 @@
                                             <td class="center"><?php echo $clientes['dtnasc']; ?></td>
                                             <td style="text-align: center;">
                                                 <button class="btn" data-toggle="modal" data-target="#formModal"><i class="icon-eye-open"></i> Ver </button>
-                                                <button class="btn btn-primary" onClick="javascript:window.location.href='editarcliente.php'"><i class="icon-pencil icon-white"></i> Editar</button>
-                                                <button class="btn btn-danger"><i class="icon-remove icon-white"></i> Delete</button>
+                                            </td>
+                                            <td style="text-align: center;">
+                                                <button class="btn btn-primary" onClick="javascript:window.location.href='editarcontrato.php?cod=<?php echo $clientes['matricula'];?>'"><i class="icon-pencil icon-white"></i> Editar</button>
+                                            </td>
+                                            <td style="text-align: center;">
+                                                <form>
+                                                    <input type="hidden" name="cod" value="<?php echo $clientes['id']; ?>" />
+                                                    <button class="btn btn-danger" name="delete"><i class="icon-remove icon-white"></i> Deletar</button>
+                                                </form>
+
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>
