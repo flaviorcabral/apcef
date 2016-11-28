@@ -27,7 +27,7 @@ class Contrato{
                 if ($nmdep != '' && $dataNasc != '') {
                     $cliente = $c->buscaClientes($nmdep, $dataNasc);
                    if(!$cliente){
-                    $this->con->exec("INSERT INTO clientes (matricula, nome, dtnasc) VALUES ('{$mat}', '{$nmdep}', '{$dataNasc}')");
+                    $this->con->exec("INSERT INTO clientes (titular, matricula, nome, dtnasc) VALUES ('{$nome}', '{$mat}', '{$nmdep}', '{$dataNasc}')");
                    }
                 }
             }
@@ -56,7 +56,7 @@ class Contrato{
                 if ($nmdep != '' && $dataNasc != '') {
                     $cliente = $c->buscaClientes($nmdep, $dataNasc);
                     if(!$cliente){
-                        $this->con->exec("INSERT INTO clientes (matricula, nome, dtnasc) VALUES ('{$mat}', '{$nmdep}', '{$dataNasc}')");
+                        $this->con->exec("INSERT INTO clientes (titular, matricula, nome, dtnasc) VALUES ('{$nome}','{$mat}', '{$nmdep}', '{$dataNasc}')");
                     }
                 }
             }

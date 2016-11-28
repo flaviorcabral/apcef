@@ -13,7 +13,7 @@
     $c->logouf();
 
     $abertos = $c->contratosAbertos();
-    $c->deleteContrato();
+    $c->contratos();
 
 ?>
 <!DOCTYPE html>
@@ -71,7 +71,7 @@
                                 <?php $info=$_REQUEST['info'];  ?>
                                 <?php echo '<h4 class = "alert alert-success" style = "margin: 10px auto; text-align:                                           center">' . $info . '</h4>'; ?>
                             <?php endif; ?>
-                            <button class="btn btn-success" style="position: relative; left: 950px; top: -20px;" onClick="javascript:window.location.href='formulario.php'"><i class="icon-plus-sign icon-white"></i> Add Plano</button>
+                            <button class="btn" style="position: relative; left: 950px; top: -20px;" onClick="javascript:window.location.href='formulario.php'"><i class="icon-plus-sign icon-white"></i> Add Plano</button>
 
                         </div>
 
@@ -108,7 +108,7 @@
                                             <td style="text-align: center;">
                                                 <form>
                                                     <input type="hidden" name="cod" value="<?php echo $contratos['matricula']; ?>" />
-                                                    <button class="btn btn-danger" name="delete"><i class="icon-remove icon-white"></i>Deletar</button>
+                                                    <button onclick="return confirm('Tem certeza que deseja excluir este contrato?')" class="btn btn-danger" name="delete"><i class="icon-remove icon-white"></i>Deletar</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -203,7 +203,7 @@
 
    <!-- FOOTER -->
     <div id="footer">
-        <p>&copy;  binarytheme &nbsp;2014 &nbsp;</p>
+        <p>Gerenciador de planos 2016</p>
     </div>
     <!--END FOOTER -->
      <!-- GLOBAL SCRIPTS -->

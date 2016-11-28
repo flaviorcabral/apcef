@@ -79,10 +79,10 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
+                                            <th>Titular</th>
                                             <th>Matricula</th>
                                             <th>Nome</th>
                                             <th>Data Nascimento</th>
-                                            <th style="text-align: center;">Ver</th>
                                             <th style="text-align: center;">Edite</th>
                                             <th style="text-align: center;">Delete</th>
                                         </tr>
@@ -91,19 +91,17 @@
                                         <?php if($lista): ?>
                                         <?php foreach($lista as $clientes): ?>
                                         <tr class="odd gradeX">
+                                            <td class="center"><?php echo $clientes['titular']; ?></td>
                                             <td class="center"><?php echo $clientes['matricula']; ?></td>
                                             <td class="center"><?php echo $clientes['nome']; ?></td>
                                             <td class="center"><?php echo $clientes['dtnasc']; ?></td>
-                                            <td style="text-align: center;">
-                                                <button class="btn" data-toggle="modal" data-target="#formModal"><i class="icon-eye-open"></i> Ver </button>
-                                            </td>
                                             <td style="text-align: center;">
                                                 <button class="btn btn-primary" onClick="javascript:window.location.href='editarcontrato.php?cod=<?php echo $clientes['matricula'];?>'"><i class="icon-pencil icon-white"></i> Editar</button>
                                             </td>
                                             <td style="text-align: center;">
                                                 <form>
                                                     <input type="hidden" name="cod" value="<?php echo $clientes['id']; ?>" />
-                                                    <button class="btn btn-danger" name="delete"><i class="icon-remove icon-white"></i> Deletar</button>
+                                                    <button onclick="return confirm('Tem certeza que deseja excluir este cliente?')" class="btn btn-danger" name="delete"><i class="icon-remove icon-white"></i> Deletar</button>
                                                 </form>
 
                                             </td>
@@ -121,45 +119,6 @@
             </div>
         </div>
        <!--END PAGE CONTENT -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title" id="H2">Informações do Plano</h4>
-                            </div>
-                            <div class="modal-body">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label class="">Matricula</label>
-                                        <input class="form-control" value="teste" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="">Titular do Plano</label>
-                                        <input class="form-control" value="teste" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Nome do cliente</label>
-                                        <input class="form-control" value="teste" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Data de Nascimento</label>
-                                        <input class="form-control" value="teste" />
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
      <!--END MAIN WRAPPER -->

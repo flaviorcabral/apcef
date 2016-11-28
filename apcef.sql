@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Nov-2016 às 21:31
+-- Generation Time: 28-Nov-2016 às 21:59
 -- Versão do servidor: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `clientes` (
   `id` int(11) NOT NULL,
+  `titular` varchar(200) NOT NULL,
   `matricula` varchar(20) NOT NULL,
   `nome` varchar(200) NOT NULL,
   `dtnasc` varchar(20) NOT NULL
@@ -37,47 +38,15 @@ CREATE TABLE `clientes` (
 -- Extraindo dados da tabela `clientes`
 --
 
-INSERT INTO `clientes` (`id`, `matricula`, `nome`, `dtnasc`) VALUES
-(4, 'teste10', 'Flavio Rodrigo', '10/07/1981'),
-(5, '23', 'Josefa Cabral', '10/04/1980'),
-(6, '8888', 'Carlos Maria', '11/11/2011'),
-(7, '999', 'Marcone Silva', '10/10/2010'),
-(8, '201545', 'Testando array', 'masculino'),
-(9, '201545', 'Testando array', 'Testando array'),
-(10, '201545', 'Testando array', ''),
-(11, '201545', 'Testando array', 'Testando array1'),
-(12, '201545', 'Testando array', ''),
-(13, '201545', 'Testando array', ''),
-(14, '201545', 'Testando array', ''),
-(15, '201545', 'Testando array', ''),
-(16, '201545', 'Testando array', ''),
-(17, '201545', 'Testando array', ''),
-(18, '201545', 'Testando array', ''),
-(19, '201545', 'Testando array', ''),
-(20, '201545', 'Testando array', 'masculino'),
-(21, '201545', 'Testando array', 'Testando array'),
-(22, '201545', 'Testando array', ''),
-(23, '201545', 'Testando array', 'Testando array1'),
-(24, '201545', 'Testando array', ''),
-(25, '201545', 'Testando array', ''),
-(26, '201545', 'Testando array', ''),
-(27, '201545', 'Testando array', ''),
-(28, '201545', 'Testando array', ''),
-(29, '201545', 'Testando array', ''),
-(30, '201545', 'Testando array', ''),
-(31, '201545', 'Testando array', ''),
-(32, '201545', 'Testando array1', 'masculino'),
-(33, '201545', 'Testando array1', 'Testando array'),
-(34, '201545', 'Testando array1', ''),
-(35, '201545', 'Testando array1', 'Testando array1'),
-(36, '201545', 'Testando array1', ''),
-(37, '201545', 'Testando array1', ''),
-(38, '201545', 'Testando array1', ''),
-(39, '201545', 'Testando array1', ''),
-(40, '201545', 'Testando array1', ''),
-(41, '201545', 'Testando array1', ''),
-(42, '201545', 'Testando array1', ''),
-(43, '201545', 'Testando array1', '');
+INSERT INTO `clientes` (`id`, `titular`, `matricula`, `nome`, `dtnasc`) VALUES
+(94, 'Jonnathann', '78945621', 'Jonnathann', 'masculino'),
+(95, 'Jonnathann', '78945621', 'Joao Alfredo', '20/07/2006'),
+(99, 'Flavio Rodrigo Cabral Pereira', '201546', 'Carlos Maria', '11/11/2011'),
+(100, 'Flavio Rodrigo Cabral Pereira', '201546', 'Flavio Rodrigo Cabral Pereira', '10/07/1981'),
+(101, 'Flavio Rodrigo Cabral Pereira', '201546', 'Nilda Jamilly', '21/12/2009'),
+(102, 'Flavio Rodrigo Cabral Pereira', '201546', 'Josefa Cabral', '10/11/1980'),
+(103, 'Flavio Rodrigo Cabral Pereira', '201546', 'Abgahil Silva', '10/07/1981'),
+(104, 'Jonnathann', '78945621', 'Jonnathann', '11/08/1985');
 
 -- --------------------------------------------------------
 
@@ -133,18 +102,8 @@ CREATE TABLE `planos` (
 --
 
 INSERT INTO `planos` (`id`, `matricula`, `dtabertura`, `ntitular`, `sexo`, `dtnasc`, `cpf`, `rg`, `org`, `profissao`, `mae`, `endereco`, `num`, `bairro`, `cidade`, `uf`, `cep`, `telefone`, `email`, `status`, `ndep1`, `data1`, `ndep2`, `data2`, `ndep3`, `data3`, `ndep4`, `data4`, `ndep5`, `data5`, `ndep6`, `data6`, `ndep7`, `data7`, `ndep8`, `data8`, `ndep9`, `data9`, `ndep10`, `data10`) VALUES
-(4, 'teste1', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', '0', 'teste', '0', 'teste', 'teste'),
-(6, 'teste3', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'aberto', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste'),
-(10, 'teste10', '17-11-16', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', ''),
-(16, '12346', '17-11-16', 'Flavio', 'masculino', '10/07/1981', '1234567899366', '789456', 'ssdspb', 'teste', 'Maria', 'rua rua', '131', 'centro', 'cidade', 'pb', '58000-000', '8379898456', 'adadad@dodod.com', 'aberto', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(18, '2055', '18-11-16', 'Marcone Sergio', 'masculino', '11/08/1985', '12345678911', '185472', 'ssdspb', 'Publico', 'Maria Jose Silva', 'Rua jose Americo', '54', 'Centro', 'Joao Pessoa', 'PB', '58000-000', '8379898456', 'marcone@dodod.com', 'fechado', 'Maria Jose', '10/11/1981', 'Joao Alfredo', '08/05/1978', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(19, '789', '18-11-16', 'Joana da Sila', 'feminino', '11/08/1985', '1111111', '185472', 'ssdspb', 'teste', 'Maria', 'rua rua', '54', 'centro', 'cidade', 'pb', '58000-000', '8379898456', 'adadad@dodod.com', 'fechado', 'Jose Bezerra', '10/11/1981', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(20, '123467', '18-11-16', 'Maria', 'feminino', '10/07/1981', '1234567899366', '789456', 'ssdspb', 'teste', 'teste', 'rua rua', '54', 'centro', 'cidade', 'pb', '58000-000', '8379898456', 'adadad@dodod.com', 'aberto', 'Jamilly', '21/12/2009', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(21, '23', '18-11-16', 'teste', 'masculino', '11111111111111', '1111111', '11111111111', 'ssdspb', '11111111', 'teste', 'rua rua', '131', '11111111', 'cidade', 'pb', '58000-000', '8379898456', 'adadad@dodod.com', 'fechado', 'Josefa Cabral', '10/04/1980', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(22, '2009', '18-11-16', 'Maria', 'feminino', '10/07/1981', '1234567899366', '185472', 'ssdspb', 'Publico', 'Maria', 'rua rua', '131', 'Centro', 'cidade', 'pb', '58000-000', '8379898456', 'adadad@dodod.com', 'aberto', 'Nadja Cristine', '09/05/1984', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(23, '8888', '18-11-16', 'Maria', 'feminino', '10/07/1981', '1111111', '11111111111', 'ssdspb', 'Publico', 'Maria', 'rua rua', '131', 'Centro', 'cidade', 'pb', '58000-000', '8379898456', 'adadad@dodod.com', 'aberto', 'Carlos Maria', '11/11/2011', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(24, '999', '18-11-16', 'teste', 'masculino', '10/07/1981', '12345678911', '185472', 'ssdspb', 'teste', 'teste', 'rua rua', '131', 'Centro', 'cidade', 'pb', '58000-000', '8379898456', 'adadad@dodod.com', 'aberto', 'Marcone Silva', '10/10/2010', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(25, '201545', '18-11-16', 'Testando array', 'masculino', 'Testando array', 'Testando array', 'Testando array', 'Testando a', 'Testando array', 'Testando array', 'Testando array', 'Testando a', 'Testando array', 'Testando array', 'Testa', 'Testando array', 'Testando array', '', 'aberto', 'Testando array', 'Testando array', '', '', 'Testando array1', 'Testando array1', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(34, '201546', '22-11-16', 'Flavio Rodrigo Cabral Pereira', 'masculino', '10/07/1981', '123456789', '456789', 'ssdspb', 'Estudante', 'Maria Cabral', 'rua da rua', '181', 'Centro', 'Natuba', 'PB', '58000-000', '8379898456', 'adadad@dodod.com', 'aberto', 'Nilda Jamilly', '21/12/2009', 'Josefa Cabral', '10/11/1980', 'Carlos Maria', '11/11/2011', 'Abgahil Silva', '10/07/1981', '', '', '', '', '', '', '', '', '', '', '', ''),
+(36, '78945621', '28-11-16', 'Jonnathann', 'masculino', '11/08/1985', '1111111', '185472', 'ssdspb', 'Publico', 'Maria', 'rua rua', '131', 'centro', 'cidade', 'pb', '58000-000', '8379898456', 'adadad@dodod.com', 'fechado', 'Nilda Jamilly', '21/12/2009', 'Joao Alfredo', '20/07/2006', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -192,12 +151,12 @@ ALTER TABLE `planos`
 -- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 --
 -- AUTO_INCREMENT for table `planos`
 --
 ALTER TABLE `planos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- Constraints for dumped tables
 --

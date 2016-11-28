@@ -14,7 +14,7 @@
     $c->logouf();
     
     $lista = $c->listaContratos();
-    $c->deleteContrato();
+    $c->contratos();
 
 ?>
 <!DOCTYPE html>
@@ -71,7 +71,7 @@
                             <?php $info=$_REQUEST['info'];  ?>
                             <?php echo '<h4 class = "alert alert-success" style = "margin: 10px auto; text-align:                                           center">' . $info . '</h4>'; ?>
                             <?php endif; ?>
-                                <button class="btn btn-success" style="position: relative; left: 950px; top: -30px;" onClick="javascript:window.location.href='formulario.php'"><i class="icon-plus-sign icon-white"></i> Add Plano</button>
+                                <button class="btn" style="position: relative; left: 950px; top: -30px;" onClick="javascript:window.location.href='formulario.php'"><i class="icon-plus-sign icon-white"></i> Add Plano</button>
                         </div>
 
                         <div class="panel-body">
@@ -107,7 +107,7 @@
                                             <td style="text-align: center;">
                                                 <form>
                                                     <input type="hidden" name="cod" value="<?php echo $contratos['matricula']; ?>" />
-                                                    <button class="btn btn-danger" name="delete"><i class="icon-remove icon-white"></i>Delete</button>
+                                                    <button onclick="return confirm('Tem certeza que deseja excluir este contrato?')" class="btn btn-danger" name="delete"><i class="icon-remove icon-white"></i>Delete</button>
                                                 </form>
                                             </td>
 
@@ -125,6 +125,7 @@
             </div>
         </div>
        <!--END PAGE CONTENT -->
+        <!-- INICIO MODAL -->
         <div class="row">
             <div class="col-lg-12">
                 <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -138,7 +139,7 @@
                                 <form role="form">
                                     <div class="form-group">
                                         <label class="">Matricula</label>
-                                        <input class="form-control" value="teste" />
+                                        <input class="form-control" value="teste" readonly/>
                                     </div>
                                     <div class="form-group">
                                         <label>Titular</label>
@@ -196,7 +197,7 @@
             </div>
 
         </div>
-
+        <!-- FINAL MODAL -->
     </div>
 
      <!--END MAIN WRAPPER -->

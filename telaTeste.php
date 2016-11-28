@@ -10,11 +10,12 @@
     //$result = $cli->buscaCliente("Flavio Rodrigo", "10/07/1981");
    // $result = $cli->buscaClientes('Flavio Rodrigo', '10/07/1981');
     //print_r()
-    $result = $c->buscaContrato('201547');
+   $result = $c->buscarTitular('201546');
+    // $result = $c->buscaContrato('201547');
    //$result = $c->deleteContrato('201545');
    //$result = $cli->addCliente('teste10', 'Maria de Lourdes', '10/09/1951');
 
-  $result = $c->editeContrato('teste192','teste193','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','maria','10/09/1951');
+  /*$result = $c->editeContrato('teste192','teste193','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','maria','10/09/1951');*/
 
 
     //$result = $c->deleteContrato('6');

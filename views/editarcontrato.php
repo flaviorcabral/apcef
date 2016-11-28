@@ -71,7 +71,7 @@
                 <div class="inner">
                     <div class="row">
                     <div class="col-lg-12">
-                                    <h1 > Edição de Contrato</h1>
+                                    <h3> Edição de Contrato</h3>
                         <?php if (isset($_REQUEST['edite']))
                             echo '<h4 class = "alert alert-success" style = "margin: 10px auto; text-align:                                           center">' . $_SESSION['edite'] . '</h4>';
                         ?>

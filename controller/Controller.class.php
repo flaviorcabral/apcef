@@ -121,20 +121,16 @@ class Controller {
             if($cad->addContrato($mat, $nome, $opt, $nasc, $cpf, $rg, $org, $prof, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $opt1, $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10)){
                 $this->cadastro = 'Plano cadastrado com Sucesso!';
             }else{
-                $this->cadastro = 'Matricula já existente!!!';
+                echo "<script>alert('Matricula informada ja Existente!');";
+                echo "location.href='javascript:history.back();'</script>";
             }
         }
 
         if(isset($_REQUEST['delete'])){
-            $mat = $_REQUEST['cod'];
-            $con = new Contrato();
-
-            $this->delete = $con->deleteContrato($mat);
-
-            if($this->delete){
-                header('Location: views/contratos.php');
-                exit;
-            }
+            $cod = $_REQUEST['cod'];
+            $chm = new Contrato();
+            $this->deleteContrato = $chm->deleteContrato($cod);
+            echo "<script>location.href='contratos.php?info=$this->deleteContrato' </script>";
         }
 
     }
@@ -217,16 +213,6 @@ class Controller {
         $fechados = $chm->listaFechados();
         
         return $fechados;
-    }
-
-    function deleteContrato() {
-        if (isset($_REQUEST['delete'])) {
-            $cod = $_REQUEST['cod'];
-            $chm = new Contrato();
-            $this->deleteContrato = $chm->deleteContrato($cod);
-            echo "<script>location.href='contratos.php?info=$this->deleteContrato' </script>";
-
-        }
     }
 
     function buscarContrato($cod){
