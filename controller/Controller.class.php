@@ -79,6 +79,7 @@ class Controller {
         if(isset($_REQUEST['salvar'])){
             $mat = $_REQUEST['matricula'];
             $nome = $_REQUEST['ntitular'];
+            $dtvenc = $_REQUEST['dtvenc'];
             $opt = $_REQUEST['option'];
             $nasc = $_REQUEST['dtnasc'];
             $cpf = $_REQUEST['cpf'];
@@ -118,7 +119,7 @@ class Controller {
 
             $cad =  new Contrato();
 
-            if($cad->addContrato($mat, $nome, $opt, $nasc, $cpf, $rg, $org, $prof, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $opt1, $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10)){
+            if($cad->addContrato($mat, $dtvenc, $nome, $opt, $nasc, $cpf, $rg, $org, $prof, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $opt1, $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10)){
                 $this->cadastro = 'Plano cadastrado com Sucesso!';
             }else{
                 echo "<script>alert('Matricula informada ja Existente!');";
@@ -144,6 +145,7 @@ class Controller {
         if(isset($_REQUEST['editar'])){
             $mat = $_REQUEST['cod'];
             $nome = $_REQUEST['ntitular'];
+            $dtvenc = $_REQUEST['dtvenc'];
             $nasc = $_REQUEST['dtnasc'];
             $sexo = $_REQUEST['sexo'];
             $cpf = $_REQUEST['cpf'];
@@ -183,7 +185,7 @@ class Controller {
 
             $upd = new Contrato();
 
-            $this->update = $upd->editeContrato($mat, $nome, $nasc, $sexo, $cpf, $rg, $org, $profissao, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $status , $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10);
+            $this->update = $upd->editeContrato($mat, $dtvenc, $nome, $nasc, $sexo, $cpf, $rg, $org, $profissao, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $status , $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10);
 
             if($this->update){
                 $this->update = 'Informações editadas com Sucesso!';
@@ -208,11 +210,11 @@ class Controller {
         return $abertos;
     } 
     
-    function contratosFechados(){
+    function contratosVencendo(){
         $chm = new Contrato();
-        $fechados = $chm->listaFechados();
+        $vencendo = $chm->listaVencendo();
         
-        return $fechados;
+        return $vencendo;
     }
 
     function buscarContrato($cod){
@@ -256,14 +258,6 @@ class Controller {
 
         return $result;
     }
-
-    function totalClientes(){
-        $chm = new Cliente();
-        $total = $chm->total();
-
-        return $total;
-
-       }
 
     function deleteCliente(){
         if (isset($_REQUEST['delete'])) {

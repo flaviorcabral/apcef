@@ -6,11 +6,11 @@
 
     $c = new Contrato();
     $cli = new Cliente();
-
-    //$result = $cli->buscaCliente("Flavio Rodrigo", "10/07/1981");
+    $con = new Controller();
+   // $result = $cli->total();
    // $result = $cli->buscaClientes('Flavio Rodrigo', '10/07/1981');
     //print_r()
-   $result = $c->buscarTitular('201546');
+   //$result = $con->totalClientes();
     // $result = $c->buscaContrato('201547');
    //$result = $c->deleteContrato('201545');
    //$result = $cli->addCliente('teste10', 'Maria de Lourdes', '10/09/1951');

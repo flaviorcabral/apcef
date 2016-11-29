@@ -13,7 +13,7 @@
 
     $c->logouf();
     
-    $lista = $c->listaContratos();
+    $lista = $c->contratosVencendo();
     $c->contratos();
 
 ?>
@@ -66,7 +66,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                          <h3>Todos os Planos</h3>
+                          <h3>Planos Vencidos/Vencendo</h3>
                             <?php if (isset($_GET['info'])):?>
                             <?php $info=$_REQUEST['info'];  ?>
                             <?php echo '<h4 class = "alert alert-success" style = "margin: 10px auto; text-align:                                           center">' . $info . '</h4>'; ?>
@@ -79,8 +79,8 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Status</th>
                                             <th>Matricula</th>
+                                            <th>Vencimento</th>
                                             <th>Titular</th>
                                             <th>CPF</th>
                                             <th>Telefone</th>
@@ -93,8 +93,8 @@
                                         <?php if ($lista): ?>
                                         <?php foreach ($lista as $contratos):  ?>
                                         <tr class="odd gradeX">
-                                            <td class="center"><?php echo $contratos['status'] ?></td>
                                             <td class="center"><?php echo $contratos['matricula'] ?></td>
+                                            <td class="center"><?php echo date("d/m/Y", strtotime($contratos['dtvencimento'])); ?></td>
                                             <td class="center"><?php echo $contratos['ntitular'] ?></td>
                                             <td class="center"><?php echo $contratos['cpf'] ?></td>
                                             <td class="center"><?php echo $contratos['telefone'] ?></td>
@@ -125,10 +125,6 @@
                                                                     <div class="form-group">
                                                                         <label class="control-label col-lg-4">Matricula</label>
                                                                         <?php echo $contratos['matricula'] ?>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="control-label col-lg-4">Data de abertura</label>
-                                                                        <?php echo date("d/m/Y", strtotime($contratos['dtabertura'])); ?>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label class="control-label col-lg-4">Data de vencimento</label>
@@ -258,6 +254,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- Fim Modal -->
+
                                     <?php endforeach; ?>
                                     <?php endif; ?>
                                     </tbody>

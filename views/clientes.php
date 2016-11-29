@@ -79,7 +79,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Titular</th>
+                                            <th>Titular do Plano</th>
                                             <th>Matricula</th>
                                             <th>Nome</th>
                                             <th>Data Nascimento</th>
@@ -94,7 +94,7 @@
                                             <td class="center"><?php echo $clientes['titular']; ?></td>
                                             <td class="center"><?php echo $clientes['matricula']; ?></td>
                                             <td class="center"><?php echo $clientes['nome']; ?></td>
-                                            <td class="center"><?php echo $clientes['dtnasc']; ?></td>
+                                            <td class="center"><?php echo date("d/m/Y", strtotime($clientes['dtnasc'])); ?></td>
                                             <td style="text-align: center;">
                                                 <button class="btn btn-primary" onClick="javascript:window.location.href='editarcontrato.php?cod=<?php echo $clientes['matricula'];?>'"><i class="icon-pencil icon-white"></i> Editar</button>
                                             </td>
@@ -123,11 +123,12 @@
 
      <!--END MAIN WRAPPER -->
 
-   <!-- FOOTER -->
-    <div id="footer">
-        <p>&copy;  binarytheme &nbsp;2014 &nbsp;</p>
-    </div>
-    <!--END FOOTER -->
+     <!-- FOOTER -->
+     <div id="footer">
+         <p>Gerenciador de planos 2016</p>
+     </div>
+     <!--END FOOTER -->
+
      <!-- GLOBAL SCRIPTS -->
     <script src="../plugins/jquery-2.0.3.min.js"></script>
      <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>

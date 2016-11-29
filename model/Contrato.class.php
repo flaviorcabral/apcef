@@ -12,9 +12,9 @@ class Contrato{
         $this->con = $conexao->getConexao();
     }
     
-    function addContrato($mat, $nome, $nasc, $sexo, $cpf, $rg, $org, $profissao, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $status, $n1, $c1, $n2, $c2, $n3, $c3, $n4, $c4, $n5, $c5, $n6, $c6, $n7, $c7, $n8, $c8, $n9, $c9, $n10, $c10) {
-        $data = date('d-m-y');
-        if($this->con->exec("INSERT INTO planos (matricula, dtabertura, ntitular, sexo, dtnasc, cpf, rg, org, profissao, mae, endereco, num, bairro, cidade, uf, cep, telefone, email, status, ndep1, data1, ndep2, data2, ndep3, data3, ndep4, data4, ndep5, data5, ndep6, data6, ndep7, data7, ndep8, data8, ndep9, data9, ndep10, data10) VALUES ('{$mat}', '{$data}' ,'{$nome}', '{$nasc}', '{$sexo}', '{$cpf}','{$rg}', '{$org}', '{$profissao}', '{$mae}', '{$end}', '{$num}', '{$bairro}', '{$cid}', '{$uf}', '{$cep}', '{$tel}', '{$email}', '{$status}', '{$n1}', '{$c1}', '{$n2}', '{$c2}','{$n3}', '{$c3}', '{$n4}', '{$c4}', '{$n5}', '{$c5}', '{$n6}', '{$c6}', '{$n7}', '{$c7}', '{$n8}', '{$c8}', '{$n9}', '{$c9}', '{$n10}','{$c10}')")){
+    function addContrato($mat, $dtvenc, $nome, $nasc, $sexo, $cpf, $rg, $org, $profissao, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $status, $n1, $c1, $n2, $c2, $n3, $c3, $n4, $c4, $n5, $c5, $n6, $c6, $n7, $c7, $n8, $c8, $n9, $c9, $n10, $c10) {
+        $data = date('Y-m-d');
+        if($this->con->exec("INSERT INTO planos (matricula, dtabertura, dtvencimento, ntitular, sexo, dtnasc, cpf, rg, org, profissao, mae, endereco, num, bairro, cidade, uf, cep, telefone, email, status, ndep1, data1, ndep2, data2, ndep3, data3, ndep4, data4, ndep5, data5, ndep6, data6, ndep7, data7, ndep8, data8, ndep9, data9, ndep10, data10) VALUES ('{$mat}', '{$data}' , '{$dtvenc}','{$nome}', '{$nasc}', '{$sexo}', '{$cpf}','{$rg}', '{$org}', '{$profissao}', '{$mae}', '{$end}', '{$num}', '{$bairro}', '{$cid}', '{$uf}', '{$cep}', '{$tel}', '{$email}', '{$status}', '{$n1}', '{$c1}', '{$n2}', '{$c2}','{$n3}', '{$c3}', '{$n4}', '{$c4}', '{$n5}', '{$c5}', '{$n6}', '{$c6}', '{$n7}', '{$c7}', '{$n8}', '{$c8}', '{$n9}', '{$c9}', '{$n10}','{$c10}')")){
 
             $nmdepend = array($nome, $n1, $n2, $n3, $n4, $n5, $n6, $n7, $n8, $n9, $n10);
             $dtdepend = array($nasc, $c1, $c2, $c3,$c4, $c5, $c6, $c7, $c8, $c9, $c10);
@@ -41,9 +41,9 @@ class Contrato{
 
     }
     
-    function editeContrato($mat, $nome, $nasc, $sexo, $cpf, $rg, $org, $profissao, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $status , $n1, $c1, $n2, $c2, $n3, $c3, $n4, $c4, $n5, $c5, $n6, $c6, $n7, $c7, $n8, $c8, $n9, $c9, $n10, $c10){
+    function editeContrato($mat, $dtvenc, $nome, $nasc, $sexo, $cpf, $rg, $org, $profissao, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $status , $n1, $c1, $n2, $c2, $n3, $c3, $n4, $c4, $n5, $c5, $n6, $c6, $n7, $c7, $n8, $c8, $n9, $c9, $n10, $c10){
 
-        if($this->con->exec("UPDATE planos SET ntitular = '{$nome}', dtnasc = '{$nasc}',sexo = '{$sexo}',  cpf = '{$cpf}', rg = '{$rg}', org = '{$org}', profissao = '{$profissao}', mae = '{$mae}', endereco = '{$end}', num = '{$num}', bairro = '{$bairro}', cidade = '{$cid}', uf = '{$uf}', cep = '{$cep}', telefone = '{$tel}', email = '{$email}', status = '{$status}', ndep1 = '{$n1}', data1 = '{$c1}', ndep2 = '{$n2}', data2 = '{$c2}', ndep3 = '{$n3}', data3 = '{$c3}', ndep4 = '{$n4}', data4 = '{$c4}', ndep5 = '{$n5}', data5 = '{$c5}', ndep6 = '{$n6}', data6 = '{$c6}', ndep7 = '{$n7}', data7 = '{$c7}', ndep8 = '{$n8}', data8 = '{$c8}', ndep9 = '{$n9}', data9 = '{$c9}', ndep10 = '{$n10}', data10 = '{$c10}' WHERE matricula = '{$mat}'")){
+        if($this->con->exec("UPDATE planos SET dtvencimento = '{$dtvenc}',ntitular = '{$nome}', dtnasc = '{$nasc}',sexo = '{$sexo}',  cpf = '{$cpf}', rg = '{$rg}', org = '{$org}', profissao = '{$profissao}', mae = '{$mae}', endereco = '{$end}', num = '{$num}', bairro = '{$bairro}', cidade = '{$cid}', uf = '{$uf}', cep = '{$cep}', telefone = '{$tel}', email = '{$email}', status = '{$status}', ndep1 = '{$n1}', data1 = '{$c1}', ndep2 = '{$n2}', data2 = '{$c2}', ndep3 = '{$n3}', data3 = '{$c3}', ndep4 = '{$n4}', data4 = '{$c4}', ndep5 = '{$n5}', data5 = '{$c5}', ndep6 = '{$n6}', data6 = '{$c6}', ndep7 = '{$n7}', data7 = '{$c7}', ndep8 = '{$n8}', data8 = '{$c8}', ndep9 = '{$n9}', data9 = '{$c9}', ndep10 = '{$n10}', data10 = '{$c10}' WHERE matricula = '{$mat}'")){
 
             $nmdepend = array($nome, $n1, $n2, $n3, $n4, $n5, $n6, $n7, $n8, $n9, $n10);
             $dtdepend = array($nasc, $c1, $c2, $c3,$c4, $c5, $c6, $c7, $c8, $c9, $c10);
@@ -88,12 +88,13 @@ class Contrato{
      
     }
 
-    function listaFechados(){
-        $fechados = $this->con->query("SELECT * FROM planos WHERE status = 'fechado'");
+    function listaVencendo(){
+        $data = date('Y-m-d');
+        $vencendo = $this->con->query("SELECT * FROM planos WHERE dtvencimento <= '{$data}'");
         
-        if ($fechados->rowCount() > 0) {
+        if ($vencendo->rowCount() > 0) {
             
-            return $fechados->fetchALL(PDO::FETCH_ASSOC);
+            return $vencendo->fetchALL(PDO::FETCH_ASSOC);
         }
        
     }

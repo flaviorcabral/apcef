@@ -106,6 +106,12 @@
                                                 <input type="text" id="matricula" name="cod" value="<?php echo $contrato['matricula']; ?>" class="form-control" readonly="readonly"/>
                                             </div>
                                         </div>
+                                            <div class="form-group" >
+                                                <label class="control-label col-lg-4">Data de vencimento</label>
+                                                <div class="col-lg-2">
+                                                    <input type="date" id="dtvenc" name="dtvenc" value="<?php echo $contrato['dtvencimento']; ?>" class="form-control"/>
+                                                </div>
+                                            </div>
                                         <div class="form-group">
                                             <label class="control-label col-lg-4">Nome do Titular</label>
                                             <div class="col-lg-4">
@@ -115,7 +121,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-lg-4">Data de Nascimento</label>
                                             <div class="col-lg-4">
-                                                <input type="text" id="dtnasc" name="dtnasc" class="form-control" value="<?php echo $contrato['dtnasc']; ?>"/>
+                                                <input type="date" id="dtnasc" name="dtnasc" class="form-control" value="<?php echo $contrato['dtnasc']; ?>"/>
                                             </div>
                                         </div>
                                             <div class="form-group">
@@ -251,7 +257,7 @@
                                         </div>
                                         <label class="control-label col-lg-2">Data de Nascimento</label>
                                         <div class="col-lg-2">
-                                            <input type="text" id="dtnasc1" name="dtnasc1" class="form-control" value="<?php echo $contrato['data1']; ?>">
+                                            <input type="date" id="dtnasc1" name="dtnasc1" class="form-control" value="<?php echo $contrato['data1']; ?>">
                                         </div>
                                         <label class="control-label col-lg-4">Dependente Dois</label>
                                         <div class="col-lg-4">
@@ -259,7 +265,7 @@
                                         </div>
                                         <label class="control-label col-lg-2">Data de Nascimento</label>
                                         <div class="col-lg-2">
-                                            <input type="text" id="dtnasc2" name="dtnasc2" class="form-control" value="<?php echo $contrato['data2']; ?>"/>
+                                            <input type="date" id="dtnasc2" name="dtnasc2" class="form-control" value="<?php echo $contrato['data2']; ?>"/>
                                         </div>
                                         <label class="control-label col-lg-4">Dependente Três</label>
                                         <div class="col-lg-4">
@@ -267,7 +273,7 @@
                                         </div>
                                         <label class="control-label col-lg-2">Data de Nascimento</label>
                                         <div class="col-lg-2">
-                                            <input type="text" id="dtnasc3" name="dtnasc3" class="form-control" value="<?php echo $contrato['data3']; ?>"/>
+                                            <input type="date" id="dtnasc3" name="dtnasc3" class="form-control" value="<?php echo $contrato['data3']; ?>"/>
                                         </div>
                                         <label class="control-label col-lg-4">Dependente Quatro</label>
                                         <div class="col-lg-4">
@@ -275,7 +281,7 @@
                                         </div>
                                         <label class="control-label col-lg-2">Data de Nascimento</label>
                                         <div class="col-lg-2">
-                                            <input type="text" id="dtnasc4" name="dtnasc4" class="form-control" value="<?php echo $contrato['data4']; ?>"/>
+                                            <input type="date" id="dtnasc4" name="dtnasc4" class="form-control" value="<?php echo $contrato['data4']; ?>"/>
                                         </div>
                                         <label class="control-label col-lg-4">Dependente Cinco</label>
                                         <div class="col-lg-4">
@@ -283,7 +289,7 @@
                                         </div>
                                         <label class="control-label col-lg-2">Data de Nascimento</label>
                                         <div class="col-lg-2">
-                                            <input type="text" id="dtnasc5" name="dtnasc5" class="form-control" value="<?php echo $contrato['data5']; ?>"/>
+                                            <input type="date" id="dtnasc5" name="dtnasc5" class="form-control" value="<?php echo $contrato['data5']; ?>"/>
                                         </div>
                                         <label class="control-label col-lg-4">Dependente Seis</label>
                                         <div class="col-lg-4">
@@ -291,7 +297,7 @@
                                         </div>
                                         <label class="control-label col-lg-2">Data de Nascimento</label>
                                         <div class="col-lg-2">
-                                            <input type="text" id="dtnasc6" name="dtnasc6" class="form-control" value="<?php echo $contrato['data6']; ?>"/>
+                                            <input type="date" id="dtnasc6" name="dtnasc6" class="form-control" value="<?php echo $contrato['data6']; ?>"/>
                                         </div>
                                         <label class="control-label col-lg-4">Dependente Sete</label>
                                         <div class="col-lg-4">
@@ -299,7 +305,7 @@
                                         </div>
                                         <label class="control-label col-lg-2">Data de Nascimento</label>
                                         <div class="col-lg-2">
-                                            <input type="text" id="dtnasc7" name="dtnasc7" class="form-control" value="<?php echo $contrato['data7']; ?>"/>
+                                            <input type="date" id="dtnasc7" name="dtnasc7" class="form-control" value="<?php echo $contrato['data7']; ?>"/>
                                         </div>
                                         <label class="control-label col-lg-4">Dependente Oito</label>
                                         <div class="col-lg-4">
@@ -307,7 +313,7 @@
                                         </div>
                                         <label class="control-label col-lg-2">Data de Nascimento</label>
                                         <div class="col-lg-2">
-                                            <input type="text" id="dtnasc8" name="dtnasc8" class="form-control" value="<?php echo $contrato['data8']; ?>"/>
+                                            <input type="date" id="dtnasc8" name="dtnasc8" class="form-control" value="<?php echo $contrato['data8']; ?>"/>
                                         </div>
                                         <label class="control-label col-lg-4">Dependente Nove</label>
                                         <div class="col-lg-4">
@@ -315,7 +321,7 @@
                                         </div>
                                         <label class="control-label col-lg-2">Data de Nascimento</label>
                                         <div class="col-lg-2">
-                                            <input type="text" id="dtnasc9" name="dtnasc9" class="form-control" value="<?php echo $contrato['data9']; ?>"/>
+                                            <input type="date" id="dtnasc9" name="dtnasc9" class="form-control" value="<?php echo $contrato['data9']; ?>"/>
                                         </div>
                                         <label class="control-label col-lg-4">Dependente Dez</label>
                                         <div class="col-lg-4">
@@ -323,7 +329,7 @@
                                         </div>
                                         <label class="control-label col-lg-2">Data de Nascimento</label>
                                         <div class="col-lg-2">
-                                            <input type="text" id="dtnasc10" name="dtnasc10" class="form-control" value="<?php echo $contrato['data10']; ?>"/>
+                                            <input type="date" id="dtnasc10" name="dtnasc10" class="form-control" value="<?php echo $contrato['data10']; ?>"/>
                                         </div>
                                         <div class="form-actions no-margin-bottom" style="">
                                             <button type="submit" name="editar" class="btn btn-primary">Salvar Edição</button>
@@ -341,10 +347,10 @@
      <!--END MAIN WRAPPER -->
 
    <!-- FOOTER -->
-    <div id="footer">
-        <p>&copy;  binarytheme &nbsp;2014 &nbsp;</p>
-    </div>
-    <!--END FOOTER -->
+   <div id="footer">
+       <p>Gerenciador de planos 2016</p>
+   </div>
+   <!--END FOOTER -->
 
 
      <!-- GLOBAL SCRIPTS -->

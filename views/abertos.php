@@ -81,7 +81,6 @@
                                     <thead>
                                         <tr>
                                             <th>Matricula</th>
-                                            <th>Abertura</th>
                                             <th>Titular</th>
                                             <th>CPF</th>
                                             <th>Telefone</th>
@@ -95,12 +94,11 @@
                                         <?php foreach($abertos as $contratos): ?>
                                         <tr class="odd gradeX">
                                             <td class="center"><?php echo $contratos['matricula']; ?></td>
-                                            <td class="center"><?php echo $contratos['dtabertura']; ?></td>
                                             <td class="center"><?php echo $contratos['ntitular']; ?></td>
                                             <td class="center"><?php echo $contratos['cpf']; ?></td>
                                             <td class="center"><?php echo $contratos['telefone']; ?></td>
                                             <td style="text-align: center;">
-                                                <button class="btn" data-toggle="modal" data-target="#formModal"><i class="icon-eye-open"></i> Ver </button>
+                                                <button class="btn" data-toggle="modal" data-target="#myModal<?php echo $contratos['matricula'] ?>"><i class="icon-eye-open"></i> Ver </button>
                                             </td>
                                             <td style="text-align: center;">
                                                 <button class="btn btn-primary" onClick="javascript:window.location.href='editarcontrato.php?cod=<?php echo $contratos['matricula']; ?>'"><i class="icon-pencil icon-white"></i>Editar</button>
@@ -112,6 +110,147 @@
                                                 </form>
                                             </td>
                                         </tr>
+                                                <!-- Inicio Modal -->
+                                                <div class="modal fade" id="myModal<?php echo $contratos['matricula'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <h4 class="modal-title" align="center" id="myModalLabel">Informações do Contrato</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Matricula</label>
+                                                                    <?php echo $contratos['matricula'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Data de abertura</label>
+                                                                    <?php echo date("d/m/Y", strtotime($contratos['dtabertura'])); ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Titular</label>
+                                                                    <?php echo $contratos['ntitular'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Data de Nascimento</label>
+                                                                    <?php echo date("d/m/Y", strtotime($contratos['dtnasc'])); ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">CPF</label>
+                                                                    <?php echo $contratos['cpf'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">RG</label>
+                                                                    <?php echo $contratos['rg'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Profissão</label>
+                                                                    <?php echo $contratos['profissao'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Mãe</label>
+                                                                    <?php echo $contratos['mae'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Endereço</label>
+                                                                    <?php echo $contratos['endereco'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Bairro</label>
+                                                                    <?php echo $contratos['bairro'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Cidade</label>
+                                                                    <?php echo $contratos['cidade'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">UF</label>
+                                                                    <?php echo $contratos['uf'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">CEP</label>
+                                                                    <?php echo $contratos['cep'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Telefone</label>
+                                                                    <?php echo $contratos['telefone'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">E-mail</label>
+                                                                    <?php echo $contratos['email'] ?>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Status</label>
+                                                                    <?php echo $contratos['status'] ?>
+                                                                </div>
+                                                                <?php if($contratos['ndep1'] != ''): ?>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label col-lg-4">Dependente 001</label>
+                                                                        <?php echo $contratos['ndep1'] ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                                <?php if($contratos['ndep2'] != ''): ?>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label col-lg-4">Dependente 002</label>
+                                                                        <?php echo $contratos['ndep2'] ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                                <?php if($contratos['ndep3'] != ''): ?>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label col-lg-4">Dependente 003</label>
+                                                                        <?php echo $contratos['ndep3'] ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                                <?php if($contratos['ndep4'] != ''): ?>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label col-lg-4">Dependente 004</label>
+                                                                        <?php echo $contratos['ndep4'] ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                                <?php if($contratos['ndep5'] != ''): ?>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label col-lg-4">Dependente 005</label>
+                                                                        <?php echo $contratos['ndep5'] ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                                <?php if($contratos['ndep6'] != ''): ?>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label col-lg-4">Dependente 006</label>
+                                                                        <?php echo $contratos['ndep6'] ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                                <?php if($contratos['ndep7'] != ''): ?>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label col-lg-4">Dependente 007</label>
+                                                                        <?php echo $contratos['ndep7'] ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                                <?php if($contratos['ndep8'] != ''): ?>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label col-lg-4">Dependente 008</label>
+                                                                        <?php echo $contratos['ndep8'] ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                                <?php if($contratos['ndep9'] != ''): ?>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label col-lg-4">Dependente 009</label>
+                                                                        <?php echo $contratos['ndep9'] ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                                <?php if($contratos['ndep10'] != ''): ?>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label col-lg-4">Dependente 0010</label>
+                                                                        <?php echo $contratos['ndep10'] ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Fim Modal -->
                                         <?php endforeach; ?>
                                         <?php endif; ?>
                                     </tbody>
