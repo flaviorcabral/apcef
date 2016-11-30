@@ -101,9 +101,10 @@
                                     <form action="#" class="form-horizontal" id="block-validate">
                                         <div id="collapseOne" class="accordion-body collapse in body">
                                         <div class="form-group" >
+                                            <input type="hidden" name="id" value="<?php echo $contrato['id']; ?>"/>
                                             <label class="control-label col-lg-4">Matricula</label>
                                             <div class="col-lg-2">
-                                                <input type="text" id="matricula" name="cod" value="<?php echo $contrato['matricula']; ?>" class="form-control" readonly="readonly"/>
+                                                <input type="text" id="matricula" name="cod" value="<?php echo $contrato['matricula']; ?>" class="form-control"/>
                                             </div>
                                         </div>
                                             <div class="form-group" >

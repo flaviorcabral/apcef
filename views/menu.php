@@ -20,7 +20,7 @@
                 <header class="navbar-header">
 
                     <a href="../views/contratos.php" class="navbar-brand">
-                    <img src="../img/APCEF.jpg" style="height: 30px;border: solid 1px black"/></a>
+                    <img src="../img/logo.jpg" style="height: 45px;position: relative; bottom: 5px;border: solid 1px black"/></a>
                 </header>
                 <!-- END LOGO SECTION -->
                 <ul class="nav navbar-top-links navbar-right">

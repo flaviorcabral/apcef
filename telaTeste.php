@@ -15,7 +15,7 @@
    //$result = $c->deleteContrato('201545');
    //$result = $cli->addCliente('teste10', 'Maria de Lourdes', '10/09/1951');
 
-  /*$result = $c->editeContrato('teste192','teste193','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','maria','10/09/1951');*/
+  $result = $c->editeContrato('50', 'teste198','teste193','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','teste','maria','10/09/1951');
 
 
     //$result = $c->deleteContrato('6');

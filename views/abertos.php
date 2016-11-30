@@ -128,6 +128,10 @@
                                                                     <?php echo date("d/m/Y", strtotime($contratos['dtabertura'])); ?>
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label class="control-label col-lg-4">Data de vencimento</label>
+                                                                    <?php echo date("d/m/Y", strtotime($contratos['dtvencimento'])); ?>
+                                                                </div>
+                                                                <div class="form-group">
                                                                     <label class="control-label col-lg-4">Titular</label>
                                                                     <?php echo $contratos['ntitular'] ?>
                                                                 </div>

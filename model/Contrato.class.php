@@ -41,9 +41,9 @@ class Contrato{
 
     }
     
-    function editeContrato($mat, $dtvenc, $nome, $nasc, $sexo, $cpf, $rg, $org, $profissao, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $status , $n1, $c1, $n2, $c2, $n3, $c3, $n4, $c4, $n5, $c5, $n6, $c6, $n7, $c7, $n8, $c8, $n9, $c9, $n10, $c10){
+    function editeContrato($id, $mat, $dtvenc, $nome, $nasc, $sexo, $cpf, $rg, $org, $profissao, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $status , $n1, $c1, $n2, $c2, $n3, $c3, $n4, $c4, $n5, $c5, $n6, $c6, $n7, $c7, $n8, $c8, $n9, $c9, $n10, $c10){
 
-        if($this->con->exec("UPDATE planos SET dtvencimento = '{$dtvenc}',ntitular = '{$nome}', dtnasc = '{$nasc}',sexo = '{$sexo}',  cpf = '{$cpf}', rg = '{$rg}', org = '{$org}', profissao = '{$profissao}', mae = '{$mae}', endereco = '{$end}', num = '{$num}', bairro = '{$bairro}', cidade = '{$cid}', uf = '{$uf}', cep = '{$cep}', telefone = '{$tel}', email = '{$email}', status = '{$status}', ndep1 = '{$n1}', data1 = '{$c1}', ndep2 = '{$n2}', data2 = '{$c2}', ndep3 = '{$n3}', data3 = '{$c3}', ndep4 = '{$n4}', data4 = '{$c4}', ndep5 = '{$n5}', data5 = '{$c5}', ndep6 = '{$n6}', data6 = '{$c6}', ndep7 = '{$n7}', data7 = '{$c7}', ndep8 = '{$n8}', data8 = '{$c8}', ndep9 = '{$n9}', data9 = '{$c9}', ndep10 = '{$n10}', data10 = '{$c10}' WHERE matricula = '{$mat}'")){
+        if($this->con->exec("UPDATE planos SET matricula = '{$mat}' ,dtvencimento = '{$dtvenc}',ntitular = '{$nome}', dtnasc = '{$nasc}',sexo = '{$sexo}',  cpf = '{$cpf}', rg = '{$rg}', org = '{$org}', profissao = '{$profissao}', mae = '{$mae}', endereco = '{$end}', num = '{$num}', bairro = '{$bairro}', cidade = '{$cid}', uf = '{$uf}', cep = '{$cep}', telefone = '{$tel}', email = '{$email}', status = '{$status}', ndep1 = '{$n1}', data1 = '{$c1}', ndep2 = '{$n2}', data2 = '{$c2}', ndep3 = '{$n3}', data3 = '{$c3}', ndep4 = '{$n4}', data4 = '{$c4}', ndep5 = '{$n5}', data5 = '{$c5}', ndep6 = '{$n6}', data6 = '{$c6}', ndep7 = '{$n7}', data7 = '{$c7}', ndep8 = '{$n8}', data8 = '{$c8}', ndep9 = '{$n9}', data9 = '{$c9}', ndep10 = '{$n10}', data10 = '{$c10}' WHERE id = '{$id}'")){
 
             $nmdepend = array($nome, $n1, $n2, $n3, $n4, $n5, $n6, $n7, $n8, $n9, $n10);
             $dtdepend = array($nasc, $c1, $c2, $c3,$c4, $c5, $c6, $c7, $c8, $c9, $c10);

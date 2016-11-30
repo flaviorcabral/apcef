@@ -41,8 +41,8 @@
 
    <!-- PAGE CONTENT --> 
     <div class="container">
-    <div class="text-center">
-        <img src="img/logo.png" id="logoimg" alt=" Logo" />
+    <div class="text" align="center">
+        <img src="img/logo.jpg" id="logoimg" style="width: 120px"/>
     </div>
     <div class="tab-content">
         <div id="login" class="tab-pane active">
@@ -52,7 +52,7 @@
                 </p>
                 <input type="text" name="usuario" placeholder="Usuário" class="form-control" />
                 <input type="password" name="senha" placeholder="Senha" class="form-control" />
-                <button class="btn text-muted text-center btn-danger" name="login" type="submit">Acessar</button>
+                <button class="btn text-center btn-block" name="login" type="submit">Acessar</button>
                 <?php if ($c->login)
                     echo '<h4 class = "alert alert-warning" style = "margin: 10px auto; text-align: center">' . $c->login . '</h4>';
                  ?>
