@@ -133,9 +133,10 @@
                                                         <option value="masculino">Masculino</option>
                                                         <option value="feminino">Feminino</option>
                                                         <?php endif; ?>
+                                                        <?php  if($contrato['sexo'] == 'feminino'): ?>
                                                         <option value="feminino">Feminino</option>
                                                         <option value="masculino">Masculino</option>
-
+                                                        <?php endif; ?>
                                                     </select>
                                                 </div>
                                             </div>
