@@ -46,7 +46,7 @@
     </div>
     <div class="tab-content">
         <div id="login" class="tab-pane active">
-            <form method="get" class="form-signin">
+            <form method="post" class="form-signin">
                 <p class="text-muted text-center btn-block btn btn-primary btn-rect">
                     Informe seu Usuário e Senha
                 </p>

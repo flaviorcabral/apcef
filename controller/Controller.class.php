@@ -76,64 +76,73 @@ class Controller {
             exit;
         }
 
-        if(isset($_REQUEST['salvar'])){
-            $mat = $_REQUEST['matricula'];
-            $nome = $_REQUEST['ntitular'];
-            $dtvenc = $_REQUEST['dtvenc'];
-            $opt = $_REQUEST['option'];
-            $nasc = $_REQUEST['dtnasc'];
-            $cpf = $_REQUEST['cpf'];
-            $rg = $_REQUEST['rg'];
-            $org = $_REQUEST['org'];
-            $prof = $_REQUEST['profissao'];
-            $mae = $_REQUEST['mae'];
-            $end = $_REQUEST['end'];
-            $num = $_REQUEST['num'];
-            $bairro = $_REQUEST['bairro'];
-            $cid = $_REQUEST['cidade'];
-            $uf = $_REQUEST['uf'];
-            $cep = $_REQUEST['cep'];
-            $tel = $_REQUEST['telefone'];
-            $email = $_REQUEST['email'];
-            $opt1 = $_REQUEST['option1'];
-            $dp1 = $_REQUEST['dp1'];
-            $dt1 = $_REQUEST['dtnasc1'];
-            $dp2 = $_REQUEST['dp2'];
-            $dt2 = $_REQUEST['dtnasc2'];
-            $dp3 = $_REQUEST['dp3'];
-            $dt3 = $_REQUEST['dtnasc3'];
-            $dp4 = $_REQUEST['dp4'];
-            $dt4 = $_REQUEST['dtnasc4'];
-            $dp5 = $_REQUEST['dp5'];
-            $dt5 = $_REQUEST['dtnasc5'];
-            $dp6 = $_REQUEST['dp6'];
-            $dt6 = $_REQUEST['dtnasc6'];
-            $dp7 = $_REQUEST['dp7'];
-            $dt7 = $_REQUEST['dtnasc7'];
-            $dp8 = $_REQUEST['dp8'];
-            $dt8 = $_REQUEST['dtnasc8'];
-            $dp9 = $_REQUEST['dp9'];
-            $dt9 = $_REQUEST['dtnasc9'];
-            $dp10 = $_REQUEST['dp10'];
-            $dt10 = $_REQUEST['dtnasc10'];
+        if( $_SERVER['REQUEST_METHOD']=='POST' ) {
+            $request = md5(implode($_POST));
 
-            $cad =  new Contrato();
+            if (isset($_SESSION['prox_request']) && $_SESSION['prox_request'] == $request) {
+                header("Refresh:1; URL:../views/formulario.php");
 
-            if($cad->addContrato($mat, $dtvenc, $nome, $opt, $nasc, $cpf, $rg, $org, $prof, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $opt1, $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10)){
-                $this->cadastro = 'Plano cadastrado com Sucesso!';
-            }else{
-                echo "<script>alert('Matricula informada ja Existente!');";
-                echo "location.href='javascript:history.back();'</script>";
+            } else {
+                $_SESSION['prox_request'] = $request;
+                if (isset($_REQUEST['salvar'])) {
+                    $mat = $_REQUEST['matricula'];
+                    $nome = $_REQUEST['ntitular'];
+                    $dtvenc = $_REQUEST['dtvenc'];
+                    $opt = $_REQUEST['option'];
+                    $nasc = $_REQUEST['dtnasc'];
+                    $cpf = $_REQUEST['cpf'];
+                    $rg = $_REQUEST['rg'];
+                    $org = $_REQUEST['org'];
+                    $prof = $_REQUEST['profissao'];
+                    $mae = $_REQUEST['mae'];
+                    $end = $_REQUEST['end'];
+                    $num = $_REQUEST['num'];
+                    $bairro = $_REQUEST['bairro'];
+                    $cid = $_REQUEST['cidade'];
+                    $uf = $_REQUEST['uf'];
+                    $cep = $_REQUEST['cep'];
+                    $tel = $_REQUEST['telefone'];
+                    $email = $_REQUEST['email'];
+                    $opt1 = $_REQUEST['option1'];
+                    $dp1 = $_REQUEST['dp1'];
+                    $dt1 = $_REQUEST['dtnasc1'];
+                    $dp2 = $_REQUEST['dp2'];
+                    $dt2 = $_REQUEST['dtnasc2'];
+                    $dp3 = $_REQUEST['dp3'];
+                    $dt3 = $_REQUEST['dtnasc3'];
+                    $dp4 = $_REQUEST['dp4'];
+                    $dt4 = $_REQUEST['dtnasc4'];
+                    $dp5 = $_REQUEST['dp5'];
+                    $dt5 = $_REQUEST['dtnasc5'];
+                    $dp6 = $_REQUEST['dp6'];
+                    $dt6 = $_REQUEST['dtnasc6'];
+                    $dp7 = $_REQUEST['dp7'];
+                    $dt7 = $_REQUEST['dtnasc7'];
+                    $dp8 = $_REQUEST['dp8'];
+                    $dt8 = $_REQUEST['dtnasc8'];
+                    $dp9 = $_REQUEST['dp9'];
+                    $dt9 = $_REQUEST['dtnasc9'];
+                    $dp10 = $_REQUEST['dp10'];
+                    $dt10 = $_REQUEST['dtnasc10'];
+
+                    $cad = new Contrato();
+
+                    if ($cad->addContrato($mat, $dtvenc, $nome, $opt, $nasc, $cpf, $rg, $org, $prof, $mae, $end, $num, $bairro, $cid, $uf, $cep, $tel, $email, $opt1, $dp1, $dt1, $dp2, $dt2, $dp3, $dt3, $dp4, $dt4, $dp5, $dt5, $dp6, $dt6, $dp7, $dt7, $dp8, $dt8, $dp9, $dt9, $dp10, $dt10)) {
+                        $this->cadastro = 'Plano cadastrado com Sucesso!';
+                    } else {
+                        echo "<script>alert('Matricula informada ja Existente!');";
+                        echo "location.href='javascript:history.back();'</script>";
+                    }
+                }
+            }
+
+            if (isset($_REQUEST['delete'])) {
+                $cod = $_REQUEST['cod'];
+                $chm = new Contrato();
+                $this->deleteContrato = $chm->deleteContrato($cod);
+                echo "<script>location.href='contratos.php?info=$this->deleteContrato' </script>";
             }
         }
-
-        if(isset($_REQUEST['delete'])){
-            $cod = $_REQUEST['cod'];
-            $chm = new Contrato();
-            $this->deleteContrato = $chm->deleteContrato($cod);
-            echo "<script>location.href='contratos.php?info=$this->deleteContrato' </script>";
-        }
-
     }
 
     function editarContrato(){

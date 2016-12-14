@@ -93,7 +93,7 @@
                                     </div>
 
                                 </header>
-                                    <form method="get" class="form-horizontal">
+                                    <form method="post" class="form-horizontal">
                                         <div id="collapseOne" class="accordion-body collapse in body">
                                         <div class="form-group" >
                                             <label class="control-label col-lg-4">Matricula</label>

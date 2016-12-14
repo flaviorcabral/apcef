@@ -76,7 +76,7 @@
                                     </div>
 
                                 </header>
-                                    <form action="#" class="form-horizontal" id="block-validate">
+                                    <form method="post" class="form-horizontal" id="block-validate">
                                         <div id="collapseOne" class="accordion-body collapse in body">
                                         <div class="form-group" >
                                             <label class="control-label col-lg-4">Matricula</label>

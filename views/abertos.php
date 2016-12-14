@@ -67,7 +67,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                           <h3>Planos Abertos</h3>
-                            <?php if (isset($_GET['info'])):?>
+                            <?php if (isset($_POST['info'])):?>
                                 <?php $info=$_REQUEST['info'];  ?>
                                 <?php echo '<h4 class = "alert alert-success" style = "margin: 10px auto; text-align:                                           center">' . $info . '</h4>'; ?>
                             <?php endif; ?>
