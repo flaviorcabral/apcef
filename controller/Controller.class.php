@@ -200,7 +200,7 @@ class Controller {
                 if ($this->update) {
                     header('Location: contratos.php?info=' . $this->update);
                 }else{
-                    echo "<script>alert('Matricula já existente!');";
+                    echo "<script>alert('Nenhuma alteração detectada. Clicar em voltar!');";
                     echo "location.href='javascript:history.back();'</script>";
                 }
         }

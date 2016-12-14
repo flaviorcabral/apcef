@@ -335,6 +335,7 @@
                                         </div>
                                         <div class="form-actions no-margin-bottom" style="">
                                             <button type="submit" name="editar" class="btn btn-primary">Salvar Edição</button>
+                                            <button class="btn btn-primary" onClick="javascript:window.location.href='contratos.php'">Voltar</button>
                                         </div>
                                     </form>
                             </div>
