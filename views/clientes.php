@@ -2,6 +2,7 @@
     include_once '../controller/Controller.class.php';
     include_once '../model/Cliente.class.php';
 
+    session_cache_expire(30);
     session_start();
     $c = new Controller();
 
@@ -25,7 +26,7 @@
 <head>
     <meta charset="UTF-8" lang="pt-br" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCORE Admin Dashboard Template | Data Tables</title>
+    <title>Gerenciador | Formulário de Cadastro</title>
      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />

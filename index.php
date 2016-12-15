@@ -40,19 +40,19 @@
 <body >
 
    <!-- PAGE CONTENT --> 
-    <div class="container">
-    <div class="text" align="center">
-        <img src="img/logo.jpg" id="logoimg" style="width: 120px"/>
-    </div>
-    <div class="tab-content">
+    <div class="container" style="position: relative; top: 60px">
+
+        <img src="img/logo.jpg" id="logoimg" style="width: 120px; position: relative; left: 500px"/>
+
+    <div class="tab-content" >
         <div id="login" class="tab-pane active">
             <form method="post" class="form-signin">
                 <p class="text-muted text-center btn-block btn btn-primary btn-rect">
                     Informe seu Usuário e Senha
                 </p>
-                <input type="text" name="usuario" placeholder="Usuário" class="form-control" />
-                <input type="password" name="senha" placeholder="Senha" class="form-control" />
-                <button class="btn text-center btn-block" name="login" type="submit">Acessar</button>
+                <input type="text" name="usuario" placeholder="Informe Usuário" class="form-control" />
+                <input type="password" name="senha" placeholder="Informe Senha" class="form-control" />
+                <button class="btn btn-primary text-center btn-block btn-rect" name="login" type="submit">Acessar</button>
                 <?php if ($c->login)
                     echo '<h4 class = "alert alert-warning" style = "margin: 10px auto; text-align: center">' . $c->login . '</h4>';
                  ?>

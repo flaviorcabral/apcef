@@ -2,6 +2,7 @@
     include_once '../controller/Controller.class.php';
     include_once '../model/Contrato.class.php';
 
+    session_cache_expire(30);
     session_start();
     $c = new Controller();
 
