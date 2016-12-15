@@ -135,6 +135,7 @@ class Controller {
                     }
                 }
             }
+        }
 
             if (isset($_REQUEST['delete'])) {
                 $cod = $_REQUEST['cod'];
@@ -142,7 +143,7 @@ class Controller {
                 $this->deleteContrato = $chm->deleteContrato($cod);
                 echo "<script>location.href='contratos.php?info=$this->deleteContrato' </script>";
             }
-        }
+
     }
 
     function editarContrato(){

@@ -69,7 +69,7 @@
                           <h3>Todos os Planos</h3>
                             <?php if (isset($_REQUEST['info'])):?>
                             <?php $info=$_REQUEST['info'];  ?>
-                            <?php echo '<h4 class = "alert alert-success" style = "margin: 10px auto; text-align:                                           center">' . $info . '</h4>'; ?>
+                            <?php echo '<h4 class = "alert alert-danger" style = "margin: 10px auto; text-align:                                           center">' . $info . '</h4>'; ?>
                             <?php endif; ?>
                                 <button class="btn" style="position: relative; left: 950px; top: -30px;" onClick="javascript:window.location.href='formulario.php'"><i class="icon-plus-sign icon-white"></i> Add Plano</button>
                         </div>
