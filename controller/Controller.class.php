@@ -14,8 +14,8 @@ class Controller {
       
             if (isset($_REQUEST['login'])) {
 
-                $login = $_REQUEST['usuario'];
-                $senha = $_REQUEST['senha'];
+                $login = preg_replace('/[^[:alpha:]_]/', '', $_REQUEST['usuario']);
+                $senha = preg_replace('/[^[:alnum:]_]/', '',$_REQUEST['senha']);
                 $usuario = new Usuario();
                 $valida = $usuario->validaAcesso($login, $senha);
 
